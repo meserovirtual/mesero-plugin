@@ -1,0 +1,13 @@
+{
+  "name": "mv-angular-reportes",
+  "homepage": "https://github.com/meserovirtual/mv-angular-reportes",
+  "_release": "c86f322ae4",
+  "_resolution": {
+    "type": "branch",
+    "branch": "master",
+    "commit": "c86f322ae4ce47b789e44f9f4bb64067124abdd0"
+  },
+  "_source": "https://github.com/meserovirtual/mv-angular-reportes.git",
+  "_target": "*",
+  "_originalSource": "mv-angular-reportes"
+}

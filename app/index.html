@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Mesero Virtual</title>
+    <link rel="shortcut icon" type="image/x-icon" href="favicon.ico"/>
+    <link rel="stylesheet" href="font-awesome/css/font-awesome.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="app.css">
+
+    <style>
+        .loader-img {
+            height: 150px;
+        }
+
+        @media (min-width: 800px) {
+            .loader-img {
+                height: 250px;
+            }
+        }
+
+        #ac-loader {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            font-family: Verdana, sans-serif;
+            background-color: white;
+        }
+
+        /* line 22, ../sass/screen.scss */
+        #ac-loader #loader-loading {
+            margin-bottom: 40px;
+            -webkit-animation: loader-loading-anim 3s ease-in-out infinite;
+            -o-animation: loader-loading-anim 3s ease-in-out infinite;
+            animation: loader-loading-anim 3s ease-in-out infinite;
+        }
+
+        /* line 31, ../sass/screen.scss */
+        #ac-loader #border-rad {
+            -webkit-border-radius: 30px;
+            -moz-border-radius: 30px;
+            border-radius: 30px;
+            overflow: hidden;
+            height: 54px;
+            width: 304px;
+            -moz-box-shadow: 0px 0px 20px 5px rgba(0, 0, 0, 0.8);
+            -webkit-box-shadow: 0px 0px 20px 5px rgba(0, 0, 0, 0.8);
+            box-shadow: 0px 0px 20px 5px rgba(0, 0, 0, 0.8);
+            -webkit-animation: loader-shadow-anim 5s ease-in-out infinite;
+            -o-animation: loader-shadow-anim 5s ease-in-out infinite;
+            animation: loader-shadow-anim 5s ease-in-out infinite;
+            border: 4px solid #133648;
+            background-color: #133648;
+            position: relative;
+        }
+
+        /* line 49, ../sass/screen.scss */
+        #ac-loader #border-rad #loader-container {
+            background-color: gray;
+            height: 50px;
+            width: 300px;
+            position: absolute;
+            left: 0;
+            top: 0;
+            overflow: hidden;
+            -webkit-mask-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAIAAACQd1PeAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAA5JREFUeNpiYGBgAAgwAAAEAAGbA+oJAAAAAElFTkSuQmCC);
+            -webkit-border-radius: 30px;
+            -moz-border-radius: 30px;
+            border-radius: 30px;
+            border: 2px solid beige;
+        }
+
+        /* line 63, ../sass/screen.scss */
+        #ac-loader #border-rad #loader-container #bubble {
+            position: absolute;
+            top: 5px;
+            background-color: rgba(255, 255, 255, 0.8);
+            -webkit-border-radius: 10px;
+            -moz-border-radius: 10px;
+            border-radius: 10px;
+            width: 10px;
+            right: 15px;
+            height: 10px;
+        }
+
+        /* line 75, ../sass/screen.scss */
+        #ac-loader #border-rad #loader-container #reflex {
+            position: absolute;
+            top: 5px;
+            background-color: rgba(255, 255, 255, 0.8);
+            -webkit-border-radius: 10px;
+            -moz-border-radius: 10px;
+            border-radius: 10px;
+            width: 250px;
+            left: 20px;
+            height: 10px;
+        }
+
+        /* line 87, ../sass/screen.scss */
+        #ac-loader #border-rad #loader-container #loader-zero {
+            -webkit-transform: translateX(0px) !important;
+            -moz-transform: translateX(0px) !important;
+            -ms-transform: translateX(0px) !important;
+            -o-transform: translateX(0px) !important;
+            transform: translateX(0px) !important;
+            -webkit-animation: move-loader-zero 10s linear infinite !important;
+            -o-animation: move-loader-zero 10s linear infinite !important;
+            animation: move-loader-zero 10s linear infinite !important;
+        }
+
+        /* line 99, ../sass/screen.scss */
+        #ac-loader #border-rad #loader-container #loader-zero,
+        #ac-loader #border-rad #loader-container #loader-first,
+        #ac-loader #border-rad #loader-container #loader-second,
+        #ac-loader #border-rad #loader-container #loader-third,
+        #ac-loader #border-rad #loader-container #loader-fourth,
+        #ac-loader #border-rad #loader-container #loader-fifth,
+        #ac-loader #border-rad #loader-container #loader-sixth {
+            position: absolute;
+            height: 100px;
+            width: 400px;
+            display: flex;
+            flex-direction: row;
+            top: 0;
+            -webkit-transform: translateX(-200px);
+            -moz-transform: translateX(-200px);
+            -ms-transform: translateX(-200px);
+            -o-transform: translateX(-200px);
+            transform: translateX(-200px);
+            -webkit-animation: move-loader 10s linear infinite;
+            -o-animation: move-loader 10s linear infinite;
+            animation: move-loader 10s linear infinite;
+        }
+
+        /* line 123, ../sass/screen.scss */
+        #ac-loader #border-rad #loader-container #loader-zero div,
+        #ac-loader #border-rad #loader-container #loader-first div,
+        #ac-loader #border-rad #loader-container #loader-second div,
+        #ac-loader #border-rad #loader-container #loader-third div,
+        #ac-loader #border-rad #loader-container #loader-fourth div,
+        #ac-loader #border-rad #loader-container #loader-fifth div,
+        #ac-loader #border-rad #loader-container #loader-sixth div {
+            width: 50px;
+            height: 100%;
+        }
+
+        /* line 129, ../sass/screen.scss */
+        #ac-loader #border-rad #loader-container #loader-second {
+            -webkit-animation-delay: 2s;
+            -moz-animation-delay: 2s;
+            -ms-animation-delay: 2s;
+            -o-animation-delay: 2s;
+            animation-delay: 2s;
+        }
+
+        /* line 137, ../sass/screen.scss */
+        #ac-loader #border-rad #loader-container #loader-third {
+            -webkit-animation-delay: 4s;
+            -moz-animation-delay: 4s;
+            -ms-animation-delay: 4s;
+            -o-animation-delay: 4s;
+            animation-delay: 4s;
+        }
+
+        /* line 145, ../sass/screen.scss */
+        #ac-loader #border-rad #loader-container #loader-fourth {
+            -webkit-animation-delay: 6s;
+            -moz-animation-delay: 6s;
+            -ms-animation-delay: 6s;
+            -o-animation-delay: 6s;
+            animation-delay: 6s;
+        }
+
+        /* line 153, ../sass/screen.scss */
+        #ac-loader #border-rad #loader-container #loader-fifth {
+            -webkit-animation-delay: 8s;
+            -moz-animation-delay: 8s;
+            -ms-animation-delay: 8s;
+            -o-animation-delay: 8s;
+            animation-delay: 8s;
+        }
+
+        /* line 161, ../sass/screen.scss */
+        #ac-loader #border-rad #loader-container #loader-sixth {
+            -webkit-animation-delay: 10s;
+            -moz-animation-delay: 10s;
+            -ms-animation-delay: 10s;
+            -o-animation-delay: 10s;
+            animation-delay: 10s;
+        }
+
+        /* line 169, ../sass/screen.scss */
+        #ac-loader #border-rad #loader-container .rojo {
+            background-color: #A1CCA5;
+        }
+
+        /* line 173, ../sass/screen.scss */
+        #ac-loader #border-rad #loader-container .azul {
+            background-color: #FBE083;
+        }
+
+        /* line 177, ../sass/screen.scss */
+        #ac-loader #border-rad #loader-container .amarillo {
+            background-color: #CE5F2D;
+        }
+
+        /* line 181, ../sass/screen.scss */
+        #ac-loader #border-rad #loader-container .naranja {
+            background-color: #50232E;
+        }
+
+        @-webkit-keyframes move-loader {
+            0% {
+                -webkit-transform: translateX(-200);
+                -moz-transform: translateX(-200);
+                -ms-transform: translateX(-200);
+                -o-transform: translateX(-200);
+                transform: translateX(-200);
+            }
+            50% {
+                -webkit-transform: translateX(300px);
+                -moz-transform: translateX(300px);
+                -ms-transform: translateX(300px);
+                -o-transform: translateX(300px);
+                transform: translateX(300px);
+                opacity: 1;
+            }
+            51% {
+                opacity: 0;
+            }
+            100% {
+                -webkit-transform: translateX(-200px);
+                -moz-transform: translateX(-200px);
+                -ms-transform: translateX(-200px);
+                -o-transform: translateX(-200px);
+                transform: translateX(-200px);
+                opacity: 0;
+            }
+        }
+
+        @-webkit-keyframes move-loader-zero {
+            0% {
+                -webkit-transform: translateX(0);
+                -moz-transform: translateX(0);
+                -ms-transform: translateX(0);
+                -o-transform: translateX(0);
+                transform: translateX(0);
+            }
+            50% {
+                -webkit-transform: translateX(500px);
+                -moz-transform: translateX(500px);
+                -ms-transform: translateX(500px);
+                -o-transform: translateX(500px);
+                transform: translateX(500px);
+                opacity: 1;
+            }
+            51% {
+                opacity: 0;
+            }
+            100% {
+                -webkit-transform: translateX(0px);
+                -moz-transform: translateX(0px);
+                -ms-transform: translateX(0px);
+                -o-transform: translateX(0px);
+                transform: translateX(0px);
+                opacity: 0;
+            }
+        }
+
+        @-webkit-keyframes loader-loading-anim {
+            0% {
+                opacity: 0;
+            }
+            25% {
+                opacity: 1;
+            }
+            75% {
+                opacity: 1;
+            }
+            100% {
+                opacity: 0;
+            }
+        }
+
+        @-webkit-keyframes loader-shadow-anim {
+            0% {
+                -moz-box-shadow: 0px 0px 40px 5px transparent;
+                -webkit-box-shadow: 0px 0px 40px 5px transparent;
+                box-shadow: 0px 0px 40px 5px transparent;
+            }
+            50% {
+                -moz-box-shadow: 0px 0px 40px 5px rgba(0, 0, 0, 0.8);
+                -webkit-box-shadow: 0px 0px 40px 5px rgba(0, 0, 0, 0.8);
+                box-shadow: 0px 0px 40px 5px rgba(0, 0, 0, 0.8);
+            }
+            100% {
+                -moz-box-shadow: 0px 0px 40px 5px transparent;
+                -webkit-box-shadow: 0px 0px 40px 5px transparent;
+                box-shadow: 0px 0px 40px 5px transparent;
+            }
+        }
+
+    </style>
+
+    <script>
+
+        // Cargo las configuraciones para la app
+        // TODO: Eliminar app o appName, no dejar las dos
+        window.appName = 'mesero-insite';
+        window.app = 'mesero-insite';
+        window.installPath = 'bower_components';
+        window.mailAdmin = 'arielcessario@gmail.com';
+        window.mailAdmins = [{mail: 'arielcessario@gmail.com'}, {mail: 'mmaneff@gmail.com'}];
+
+        // include angular loader, which allows the files to load in any order
+        //@@NG_LOADER_START@@
+        /*
+         AngularJS v1.4.7
+         (c) 2010-2015 Google, Inc. http://angularjs.org
+         License: MIT
+         */
+
+        //# sourceMappingURL=bower_components/angular-loader/angular-loader.min.js.map
+        //@@NG_LOADER_END@@
+
+        // include a third-party async loader library
+        /*!
+         * $script.js v1.3
+         * https://github.com/ded/script.js
+         * Copyright: @ded & @fat - Dustin Diaz, Jacob Thornton 2011
+         * Follow our software http://twitter.com/dedfat
+         * License: MIT
+         */
+        !function (a, b, c) {
+            function t(a, c) {
+                var e = b.createElement("script"), f = j;
+                e.onload = e.onerror = e[o] = function () {
+                    e[m] && !/^c|loade/.test(e[m]) || f || (e.onload = e[o] = null, f = 1, c())
+                }, e.async = 1, e.src = a, d.insertBefore(e, d.firstChild)
+            }
+
+            function q(a, b) {
+                p(a, function (a) {
+                    return !b(a)
+                })
+            }
+
+            var d = b.getElementsByTagName("head")[0], e = {}, f = {}, g = {}, h = {}, i = "string", j = !1, k = "push", l = "DOMContentLoaded", m = "readyState", n = "addEventListener", o = "onreadystatechange", p = function (a, b) {
+                for (var c = 0, d = a.length; c < d; ++c)if (!b(a[c]))return j;
+                return 1
+            };
+            !b[m] && b[n] && (b[n](l, function r() {
+                b.removeEventListener(l, r, j), b[m] = "complete"
+            }, j), b[m] = "loading");
+            var s = function (a, b, d) {
+                function o() {
+                    if (!--m) {
+                        e[l] = 1, j && j();
+                        for (var a in g)p(a.split("|"), n) && !q(g[a], n) && (g[a] = [])
+                    }
+                }
+
+                function n(a) {
+                    return a.call ? a() : e[a]
+                }
+
+                a = a[k] ? a : [a];
+                var i = b && b.call, j = i ? b : d, l = i ? a.join("") : b, m = a.length;
+                c(function () {
+                    q(a, function (a) {
+                        h[a] ? (l && (f[l] = 1), o()) : (h[a] = 1, l && (f[l] = 1), t(s.path ? s.path + a + ".js" : a, o))
+                    })
+                }, 0);
+                return s
+            };
+            s.get = t, s.ready = function (a, b, c) {
+                a = a[k] ? a : [a];
+                var d = [];
+                !q(a, function (a) {
+                    e[a] || d[k](a)
+                }) && p(a, function (a) {
+                    return e[a]
+                }) ? b() : !function (a) {
+                    g[a] = g[a] || [], g[a][k](b), c && c(d)
+                }(a.join("|"));
+                return s
+            };
+            var u = a.$script;
+            s.noConflict = function () {
+                a.$script = u;
+                return this
+            }, typeof module != "undefined" && module.exports ? module.exports = s : a.$script = s
+        }(this, document, setTimeout);
+
+        // load all of the dependencies asynchronously.
+        $script(['bower_components/angular/angular.js'], 'primero');
+        $script.ready('primero', function () {
+
+                    $script([
+                        'bower_components/angular-route/angular-route.min.js',
+                        'bower_components/oclazyload/dist/ocLazyLoad.min.js',
+                        'bower_components/angular-cookies/angular-cookies.min.js',
+                        'bower_components/angular-animate/angular-animate.min.js',
+                        '//cdn.auth0.com/js/lock-7.9.min.js',
+                        '//cdn.auth0.com/w2/auth0-angular-4.min.js',
+                        'bower_components/angular-jwt/dist/angular-jwt.min.js',
+                        'bower_components/mv-angular-utils/mv-utils.js',
+                        'bower_components/mv-angular-autocomplete/mv-autocomplete.js',
+                        'bower_components/mv-angular-usuarios/mv-clientes.js',
+                        'bower_components/mv-angular-sucursales/mv-sucursales.js',
+                        'bower_components/mv-angular-productos/mv-productos.js',
+                        'bower_components/mv-angular-productos/mv-productos-insite.js',
+                        'bower_components/mv-angular-comandas/mv-comandas.js',
+                        'bower_components/mv-angular-comandas/mv-mi-pedido.js',
+                        'bower_components/mv-angular-contacts/mv-contacts.js',
+//                        'bower_components/angular-qr-scanner/qr-scanner.js',
+//                        'bower_components/angular-qr-scanner/src/jsqrcode-combined.min.js',
+                        'includes/LangTables.js',
+                        'helper/ac-helper.js',
+                    ], 'segundo');
+
+                    $script.ready('segundo', function () {
+                        $script(['app.js'], 'tercero');
+
+                        $script.ready('tercero', function () {
+                            angular.bootstrap(document, ['mesero']);
+                        });
+                    });
+                }
+        );
+
+    </script>
+
+    <script>
+        var cb = function () {
+            var l = document.createElement('link');
+            l.rel = 'stylesheet';
+            l.href = 'stylesheets/styles.css';
+            var h = document.getElementsByTagName('head')[0];
+            h.parentNode.insertBefore(l, h);
+        };
+        var raf = requestAnimationFrame || mozRequestAnimationFrame ||
+                webkitRequestAnimationFrame || msRequestAnimationFrame;
+        if (raf) raf(cb);
+        else window.addEventListener('load', cb);
+    </script>
+
+</head>
+<body ng-controller="AppCtrl as appCtrl">
+<div ng-if="!appCtrl.hideLoader" id="ac-loader">
+    <img src="images/logo_loader.png" alt="" class="loader-img">
+    <span id="loader-loading" style="margin-top: 20px">Loading...</span>
+    <div id="border-rad">
+        <div id="loader-container">
+            <div id="loader-zero">
+                <div class="azul"></div>
+                <div class="rojo"></div>
+                <div class="amarillo"></div>
+                <div class="naranja"></div>
+                <div class="azul"></div>
+                <div class="rojo"></div>
+                <div class="amarillo"></div>
+                <div class="naranja"></div>
+            </div>
+            <div id="loader-first">
+                <div class="azul"></div>
+                <div class="rojo"></div>
+                <div class="amarillo"></div>
+                <div class="naranja"></div>
+            </div>
+            <div id="loader-second">
+                <div class="azul"></div>
+                <div class="rojo"></div>
+                <div class="amarillo"></div>
+                <div class="naranja"></div>
+            </div>
+            <div id="loader-third">
+                <div class="azul"></div>
+                <div class="rojo"></div>
+                <div class="amarillo"></div>
+                <div class="naranja"></div>
+            </div>
+            <div id="loader-fourth">
+                <div class="azul"></div>
+                <div class="rojo"></div>
+                <div class="amarillo"></div>
+                <div class="naranja"></div>
+            </div>
+            <div id="loader-fifth">
+                <div class="azul"></div>
+                <div class="rojo"></div>
+                <div class="amarillo"></div>
+                <div class="naranja"></div>
+            </div>
+            <div id="loader-sixth">
+                <div class="azul"></div>
+                <div class="rojo"></div>
+                <div class="amarillo"></div>
+                <div class="naranja"></div>
+            </div>
+            <div id="reflex"></div>
+            <div id="bubble"></div>
+        </div>
+    </div>
+</div>
+
+<div class="nav">
+    <!--<button ng-click="appCtrl.limpiarHeader();">Remover</button>-->
+    <!--<button ng-click="appCtrl.decode();">Decode</button>-->
+
+    <usuario-logout ng-if="$ctrl.isLogged" redirect="'/productos'"></usuario-logout>
+    <img ng-if="!$ctrl.isLogged" src="images/login.svg" alt="">
+    <div class="separator"></div>
+    <div>Total</div>
+    <img src="images/menu.svg" ng-click="appCtrl.goToPagina('/productos');"/>
+    <img src="images/cart.svg" ng-click="appCtrl.goToPagina('/mi-pedido');"/>
+    <img src="images/llamar-al-mozo.svg" />
+    <img src="images/boton-cobrar.svg" />
+</div>
+
+<!--<qr-scanner ng-success="onSuccess(data)" width="400" height="300"></qr-scanner>-->
+<div ng-view class="view-container"></div>
+
+</body>
+</html>

@@ -1,0 +1,13 @@
+{
+  "name": "mv-angular-stocks",
+  "homepage": "https://github.com/meserovirtual/mv-angular-stocks",
+  "_release": "32134761e4",
+  "_resolution": {
+    "type": "branch",
+    "branch": "master",
+    "commit": "32134761e4e515a6287a6805684ac0a2d31cada8"
+  },
+  "_source": "https://github.com/meserovirtual/mv-angular-stocks.git",
+  "_target": "*",
+  "_originalSource": "mv-angular-stocks"
+}

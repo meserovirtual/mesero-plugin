@@ -1,0 +1,262 @@
+@import "https://fonts.googleapis.com/css?family=Roboto";
+/* line 5, ../../../../../RailsInstaller/Ruby2.2.0/lib/ruby/gems/2.2.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font: inherit;
+  font-size: 100%;
+  vertical-align: baseline;
+}
+
+/* line 22, ../../../../../RailsInstaller/Ruby2.2.0/lib/ruby/gems/2.2.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+html {
+  line-height: 1;
+}
+
+/* line 24, ../../../../../RailsInstaller/Ruby2.2.0/lib/ruby/gems/2.2.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+ol, ul {
+  list-style: none;
+}
+
+/* line 26, ../../../../../RailsInstaller/Ruby2.2.0/lib/ruby/gems/2.2.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* line 28, ../../../../../RailsInstaller/Ruby2.2.0/lib/ruby/gems/2.2.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+caption, th, td {
+  text-align: left;
+  font-weight: normal;
+  vertical-align: middle;
+}
+
+/* line 30, ../../../../../RailsInstaller/Ruby2.2.0/lib/ruby/gems/2.2.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+q, blockquote {
+  quotes: none;
+}
+/* line 103, ../../../../../RailsInstaller/Ruby2.2.0/lib/ruby/gems/2.2.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+q:before, q:after, blockquote:before, blockquote:after {
+  content: "";
+  content: none;
+}
+
+/* line 32, ../../../../../RailsInstaller/Ruby2.2.0/lib/ruby/gems/2.2.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+a img {
+  border: none;
+}
+
+/* line 116, ../../../../../RailsInstaller/Ruby2.2.0/lib/ruby/gems/2.2.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+article, aside, details, figcaption, figure, footer, header, hgroup, main, menu, nav, section, summary {
+  display: block;
+}
+
+/* line 13, ../sass/styles.scss */
+body {
+  font-family: "Roboto";
+}
+
+/* line 17, ../sass/styles.scss */
+.form-abm {
+  position: fixed;
+  width: 100%;
+  top: 0;
+  bottom: 0;
+  right: -100%;
+  background-color: white;
+}
+
+/* line 26, ../sass/styles.scss */
+.form-open {
+  right: 0 !important;
+}
+
+/* line 30, ../sass/styles.scss */
+.mi-pedido-no-pedido {
+  background-color: #DfDfDf !important;
+}
+
+/* line 34, ../sass/styles.scss */
+.mi-pedido-pedido {
+  background-color: #FFFFFF;
+  display: flex;
+  flex-direction: column;
+}
+
+/* line 40, ../sass/styles.scss */
+.mi-pedido-top {
+  display: flex;
+  flex-direction: row;
+}
+
+/* line 46, ../sass/styles.scss */
+.mi-pedido-extra {
+  border: 1px solid #8c8c8c;
+  background-color: #D5D5D5;
+  display: flex;
+  flex-direction: row;
+}
+
+/* line 53, ../sass/styles.scss */
+.mi-pedido-eliminar {
+  height: 20px;
+  width: 20px;
+  margin-left: calc(50% - 10px);
+  padding: 5px;
+}
+
+/* line 60, ../sass/styles.scss */
+.mi-pedido-top-left,
+.mi-pedido-extra-left {
+  flex: 8;
+  margin: 5px;
+}
+
+/* line 66, ../sass/styles.scss */
+.mi-pedido-top-right,
+.mi-pedido-extra-right {
+  flex: 1;
+  margin: 5px;
+}
+
+/* line 72, ../sass/styles.scss */
+.nav {
+  display: flex;
+  flex-direction: row;
+  align-content: space-between;
+  background-color: #eeeeee;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 40px;
+}
+/* line 82, ../sass/styles.scss */
+.nav img {
+  height: 30px;
+  width: 30px;
+}
+/* line 86, ../sass/styles.scss */
+.nav .separator {
+  flex: 8;
+}
+
+/* line 91, ../sass/styles.scss */
+.view-container {
+  margin-top: 40px;
+}
+
+/* line 95, ../sass/styles.scss */
+.mi-pedido-titulo {
+  width: calc(100% - 20px);
+  background-color: #dcdcdc;
+  color: #90a489;
+  text-transform: uppercase;
+  font-weight: bold;
+  display: inherit;
+  padding: 10px;
+}
+
+/* line 105, ../sass/styles.scss */
+.productos-insite-categoria-titulo,
+.productos-insite-producto-guar-titulo {
+  width: calc(100% - 20px);
+  background-color: #dcdcdc;
+  color: #90a489;
+  text-transform: uppercase;
+  font-weight: bold;
+  display: inherit;
+  padding: 10px;
+}
+
+/* line 116, ../sass/styles.scss */
+.productos-insite-categoria-imagen {
+  width: 100%;
+  height: 50px;
+}
+
+/* line 121, ../sass/styles.scss */
+.buscador-container {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  flex-direction: row;
+}
+/* line 126, ../sass/styles.scss */
+.buscador-container .input {
+  width: 90%;
+  margin: 5px;
+}
+
+/* line 132, ../sass/styles.scss */
+.productos-insite-producto,
+.productos-insite-producto-guarnicion {
+  display: flex;
+  flex-direction: row;
+}
+/* line 136, ../sass/styles.scss */
+.productos-insite-producto span:nth-child(1),
+.productos-insite-producto-guarnicion span:nth-child(1) {
+  flex: 8;
+}
+/* line 139, ../sass/styles.scss */
+.productos-insite-producto span,
+.productos-insite-producto-guarnicion span {
+  padding: 5px;
+}
+
+/* line 144, ../sass/styles.scss */
+.productos-insite-producto:nth-child(odd),
+.productos-insite-producto-guarnicion:nth-child(odd) {
+  background-color: #DfDfDf;
+}
+
+/* line 149, ../sass/styles.scss */
+.productos-insite-detalle {
+  display: flex;
+  flex-direction: column;
+}
+
+/* line 154, ../sass/styles.scss */
+.productos-insite-producto-top {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin: 10px;
+}
+
+/* line 160, ../sass/styles.scss */
+.productos-insite-producto-titulo {
+  font-weight: bold;
+}
+
+/* line 163, ../sass/styles.scss */
+.productos-insite-producto-precio {
+  font-weight: bold;
+  color: #90a489;
+}
+
+/* line 168, ../sass/styles.scss */
+.productos-insite-producto-add-remove {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+/* line 177, ../sass/styles.scss */
+.productos-insite-producto-comentario {
+  width: 100%;
+}

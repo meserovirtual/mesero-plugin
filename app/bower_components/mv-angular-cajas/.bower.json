@@ -1,0 +1,13 @@
+{
+  "name": "mv-angular-cajas",
+  "homepage": "https://github.com/meserovirtual/mv-angular-cajas",
+  "_release": "c84ebff791",
+  "_resolution": {
+    "type": "branch",
+    "branch": "master",
+    "commit": "c84ebff791e0fde09c859c5444f5067c410d964b"
+  },
+  "_source": "https://github.com/meserovirtual/mv-angular-cajas.git",
+  "_target": "*",
+  "_originalSource": "mv-angular-cajas"
+}

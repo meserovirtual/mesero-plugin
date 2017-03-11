@@ -1,0 +1,14 @@
+{
+  "name": "mv-angular-usuarios",
+  "homepage": "https://github.com/meserovirtual/mv-angular-usuarios",
+  "_release": "852a04dcab",
+  "_resolution": {
+    "type": "branch",
+    "branch": "master",
+    "commit": "852a04dcabaaa9e1b1e35e64d4d6f6e4840f2932"
+  },
+  "_source": "https://github.com/meserovirtual/mv-angular-usuarios.git",
+  "_target": "*",
+  "_originalSource": "mv-angular-usuarios",
+  "_direct": true
+}

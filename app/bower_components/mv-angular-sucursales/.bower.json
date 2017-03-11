@@ -1,0 +1,13 @@
+{
+  "name": "mv-angular-sucursales",
+  "homepage": "https://github.com/meserovirtual/mv-angular-sucursales",
+  "_release": "8b1ed10206",
+  "_resolution": {
+    "type": "branch",
+    "branch": "master",
+    "commit": "8b1ed1020625ff94b74734bb991230534e2e5234"
+  },
+  "_source": "https://github.com/meserovirtual/mv-angular-sucursales.git",
+  "_target": "*",
+  "_originalSource": "mv-angular-sucursales"
+}

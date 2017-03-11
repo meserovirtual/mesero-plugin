@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="25px" height="33px" viewBox="0 0 25 33" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 39.1 (31720) - http://www.bohemiancoding.com/sketch -->
+    <title>Page 1</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <filter x="-50%" y="-50%" width="200%" height="200%" filterUnits="objectBoundingBox" id="filter-1">
+            <feOffset dx="0" dy="2" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="2" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.5 0" type="matrix" in="shadowBlurOuter1" result="shadowMatrixOuter1"></feColorMatrix>
+            <feMerge>
+                <feMergeNode in="shadowMatrixOuter1"></feMergeNode>
+                <feMergeNode in="SourceGraphic"></feMergeNode>
+            </feMerge>
+        </filter>
+    </defs>
+    <g id="Ventas-in-situ" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Artboard" transform="translate(-534.000000, -172.000000)">
+            <g id="Page-1" filter="url(#filter-1)" transform="translate(546.833333, 186.500000) rotate(-90.000000) translate(-546.833333, -186.500000) translate(534.333333, 178.000000)">
+                <path d="M23.4375,1.49213975e-13 L15.625,1.49213975e-13 L15.625,16.4772727 L23.4375,16.4772727 C24.3,16.4772727 25,15.8628078 25,15.1041667 L25,1.37310606 C25,0.614464962 24.3,1.49213975e-13 23.4375,1.49213975e-13" id="Fill-1" fill="#735538"></path>
+                <path d="M1.5625,1.49213975e-13 C0.69921875,1.49213975e-13 1.49213975e-13,0.614464962 1.49213975e-13,1.37310606 L1.49213975e-13,15.1041667 C1.49213975e-13,15.8628078 0.69921875,16.4772727 1.5625,16.4772727 L15.625,16.4772727 L15.625,1.49213975e-13 L1.5625,1.49213975e-13 Z" id="Fill-3" fill="#A67C52"></path>
+                <path d="M21.875,1.37310606 L20.3125,1.37310606 L20.3125,15.1041667 L21.875,15.1041667 C22.7375,15.1041667 23.4367188,14.4897017 23.4367188,13.7310606 L23.4367188,2.74621212 C23.4367188,1.98757102 22.7375,1.37310606 21.875,1.37310606" id="Fill-5" fill="#E6E6E6"></path>
+                <path d="M20.3125,3.55881629 L20.3125,7.42616951 C21.2210938,7.14193655 21.875,6.38741477 21.875,5.49214962 C21.875,4.59688447 21.2210938,3.84236269 20.3125,3.55881629" id="Fill-7" fill="#FFCC66"></path>
+                <path d="M17.1875,1.37310606 L15.625,1.37310606 L15.625,15.1041667 L17.1875,15.1041667 C18.05,15.1041667 18.7492188,14.4897017 18.7492188,13.7310606 L18.7492188,2.74621212 C18.7492188,1.98757102 18.05,1.37310606 17.1875,1.37310606" id="Fill-9" fill="#88C057"></path>
+            </g>
+        </g>
+    </g>
+</svg>

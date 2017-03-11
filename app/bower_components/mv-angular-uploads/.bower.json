@@ -1,0 +1,13 @@
+{
+  "name": "mv-angular-uploads",
+  "homepage": "https://github.com/meserovirtual/mv-angular-uploads",
+  "_release": "48d0066e3f",
+  "_resolution": {
+    "type": "branch",
+    "branch": "master",
+    "commit": "48d0066e3f3d47518253f1d2d0e92b121e32c407"
+  },
+  "_source": "https://github.com/meserovirtual/mv-angular-uploads.git",
+  "_target": "*",
+  "_originalSource": "mv-angular-uploads"
+}

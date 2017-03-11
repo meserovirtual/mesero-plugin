@@ -1,0 +1,14 @@
+{
+  "name": "mv-angular-comandas",
+  "homepage": "https://github.com/meserovirtual/mv-angular-comandas",
+  "_release": "a83d8695dd",
+  "_resolution": {
+    "type": "branch",
+    "branch": "master",
+    "commit": "a83d8695ddd293c101ad1de1db9b5f0862646a76"
+  },
+  "_source": "https://github.com/meserovirtual/mv-angular-comandas.git",
+  "_target": "*",
+  "_originalSource": "mv-angular-comandas",
+  "_direct": true
+}

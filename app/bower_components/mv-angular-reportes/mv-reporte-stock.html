@@ -1,0 +1,71 @@
+<div class="lista">
+
+    <div style="display: flex; flex-direction: row; justify-content: space-around; flex-wrap: wrap;">
+        <div class="input">
+            <input type="text" ng-model="$ctrl.filtro">
+            <label for="">Buscar Producto</label>
+        </div>
+        <select style="max-width: 300px; margin: 10px" name="" id="" ng-model="$ctrl.sucursal"
+                ng-options="sucursal.nombre for sucursal in $ctrl.sucursales"
+                ng-change="$ctrl.getData();"></select>
+    </div>
+    <table>
+        <thead>
+        <tr>
+            <th>Producto</th>
+            <th>Cantidad Total</th>
+            <th>Foto</th>
+        </tr>
+        </thead>
+        <tbody>
+
+        <tr ng-repeat="row in $ctrl.stocks | filter:$ctrl.filtro"
+            ng-click="$ctrl.stock=row;$ctrl.detailsOpen = true;">
+
+            <td class="">{{row.nombre}}</td>
+            <td class="" style="text-align: center;">{{row.cantidad}}</td>
+            <td class="" style="text-align: center;">
+                <ul class="enlarge">
+                    <li>
+                        <img ng-src="./images/{{row.fotos.length == 0 ? 'no_image.png' : row.fotos[0].nombre}}"
+                             alt="{{row.fotos[0].nombre}}" style="background-color: #dddddd;height: 40px !important;width: 40px!important;">
+                    <span>
+                        <img ng-src="./images/{{row.fotos.length == 0 ? 'no_image.png' : row.fotos[0].nombre}}"
+                             alt="{{row.fotos.length == 0 ? '' : row.nombre}}" >
+                        <br>
+                        {{row.nombre}}
+                    </span>
+                    </li>
+                </ul>
+            </td>
+        </tr>
+    </table>
+
+</div>
+<ac-blocker blocker-click="$ctrl.stock = {}; $ctrl.detailsOpen = false;" visibility="$ctrl.detailsOpen"></ac-blocker>
+<form class="form details" form-id="pago-proveedores"
+      ng-class="{'details-open':$ctrl.detailsOpen}">
+    <div class="detalle-container">
+        <table>
+            <thead>
+            <tr>
+                <th>Producto</th>
+                <th>Cantidad Total</th>
+                <th>Costo Unitario</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr ng-repeat="row in $ctrl.stock.stocks">
+                <td class="" style="font-size: 15px;">{{$ctrl.stock.nombre}}</td>
+                <td class="" style="text-align: center;">{{row.cant_actual}}</td>
+                <td class="" style="text-align: right;">$ {{row.costo_uni}}</td>
+            </tr>
+        </table>
+        <div class="botonera">
+            <button ng-click="$ctrl.detailsOpen =false; $ctrl.stock = {}">Cerrar</button>
+        </div>
+    </div>
+</form>
+
+
+

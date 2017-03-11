@@ -1,0 +1,14 @@
+{
+  "name": "mv-angular-movimientos",
+  "homepage": "https://github.com/meserovirtual/mv-angular-movimientos",
+  "_release": "ed89ee8d3d",
+  "_resolution": {
+    "type": "branch",
+    "branch": "master",
+    "commit": "ed89ee8d3dbf33625b146a6f0ac5ccbd8a68a99e"
+  },
+  "_source": "https://github.com/meserovirtual/mv-angular-movimientos.git",
+  "_target": "*",
+  "_originalSource": "mv-angular-movimientos",
+  "_direct": true
+}

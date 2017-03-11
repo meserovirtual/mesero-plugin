@@ -1,0 +1,13 @@
+{
+  "name": "mv-angular-contacts",
+  "homepage": "https://github.com/meserovirtual/mv-angular-contacts",
+  "_release": "803b11588e",
+  "_resolution": {
+    "type": "branch",
+    "branch": "master",
+    "commit": "803b11588e908255d5ed104d2343fe6eddcff8f9"
+  },
+  "_source": "https://github.com/meserovirtual/mv-angular-contacts.git",
+  "_target": "*",
+  "_originalSource": "mv-angular-contacts"
+}

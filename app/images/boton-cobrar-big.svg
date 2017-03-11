@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="40px" height="56px" viewBox="0 0 40 56" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 39.1 (31720) - http://www.bohemiancoding.com/sketch -->
+    <title>Page 1</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <filter x="-50%" y="-50%" width="200%" height="200%" filterUnits="objectBoundingBox" id="filter-1">
+            <feOffset dx="0" dy="2" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="2" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.5 0" type="matrix" in="shadowBlurOuter1" result="shadowMatrixOuter1"></feColorMatrix>
+            <feMerge>
+                <feMergeNode in="shadowMatrixOuter1"></feMergeNode>
+                <feMergeNode in="SourceGraphic"></feMergeNode>
+            </feMerge>
+        </filter>
+    </defs>
+    <g id="Ventas-in-situ" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Artboard" transform="translate(-2951.000000, -722.000000)">
+            <g id="Page-1" filter="url(#filter-1)" transform="translate(2971.363636, 748.000000) rotate(-90.000000) translate(-2971.363636, -748.000000) translate(2947.363636, 732.000000)">
+                <path d="M45,0 L30,0 L30,31.6363636 L45,31.6363636 C46.656,31.6363636 48,30.4565909 48,29 L48,2.63636364 C48,1.17977273 46.656,0 45,0" id="Fill-1" fill="#735538"></path>
+                <path d="M3,0 C1.3425,0 0,1.17977273 0,2.63636364 L0,29 C0,30.4565909 1.3425,31.6363636 3,31.6363636 L30,31.6363636 L30,0 L3,0 Z" id="Fill-3" fill="#A67C52"></path>
+                <path d="M42,2.63636364 L39,2.63636364 L39,29 L42,29 C43.656,29 44.9985,27.8202273 44.9985,26.3636364 L44.9985,5.27272727 C44.9985,3.81613636 43.656,2.63636364 42,2.63636364" id="Fill-5" fill="#E6E6E6"></path>
+                <path d="M39,6.83292727 L39,14.2582455 C40.7445,13.7125182 42,12.2638364 42,10.5449273 C42,8.82601818 40.7445,7.37733636 39,6.83292727" id="Fill-7" fill="#FFCC66"></path>
+                <path d="M33,2.63636364 L30,2.63636364 L30,29 L33,29 C34.656,29 35.9985,27.8202273 35.9985,26.3636364 L35.9985,5.27272727 C35.9985,3.81613636 34.656,2.63636364 33,2.63636364" id="Fill-9" fill="#88C057"></path>
+            </g>
+        </g>
+    </g>
+</svg>
