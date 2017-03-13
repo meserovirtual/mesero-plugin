@@ -314,7 +314,7 @@
         // Cargo las configuraciones para la app
         // TODO: Eliminar app o appName, no dejar las dos
         window.appName = 'mesero-insite';
-        window.app = 'mesero-insite';
+        window.app = 'mesero-plugin';
         window.installPath = 'bower_components';
         window.mailAdmin = 'arielcessario@gmail.com';
         window.mailAdmins = [{mail: 'arielcessario@gmail.com'}, {mail: 'mmaneff@gmail.com'}];
@@ -515,14 +515,14 @@
     <!--<button ng-click="appCtrl.limpiarHeader();">Remover</button>-->
     <!--<button ng-click="appCtrl.decode();">Decode</button>-->
 
-    <usuario-logout ng-if="$ctrl.isLogged" redirect="'/productos'"></usuario-logout>
+    <usuario-logout ng-if="$ctrl.isLogged" redirect="'/main'"></usuario-logout>
     <img ng-if="!$ctrl.isLogged" src="images/login.svg" alt="">
     <div class="separator"></div>
     <div>Total</div>
-    <img src="images/menu.svg" ng-click="appCtrl.goToPagina('/productos');"/>
-    <img src="images/cart.svg" ng-click="appCtrl.goToPagina('/mi-pedido');"/>
-    <img src="images/llamar-al-mozo.svg" />
-    <img src="images/boton-cobrar.svg" />
+    <img src="images/menu.svg" ng-click="appCtrl.goToPagina('/main');"/>
+    <!--<img src="images/cart.svg" ng-click="appCtrl.goToPagina('/mi-pedido');"/>-->
+    <!--<img src="images/llamar-al-mozo.svg" />-->
+    <!--<img src="images/boton-cobrar.svg" />-->
 </div>
 
 <!--<qr-scanner ng-success="onSuccess(data)" width="400" height="300"></qr-scanner>-->

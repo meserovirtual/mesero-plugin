@@ -18,10 +18,13 @@
         'mvContacts',
         'LangTables',
         'acHelper'
-    ]).config(['$locationProvider', '$routeProvider', function ($locationProvider, $routeProvider) {
+    ]).config(['$locationProvider', '$routeProvider', 'jwtOptionsProvider', function ($locationProvider, $routeProvider, jwtOptionsProvider) {
+
+        jwtOptionsProvider.config({whiteListedDomains: ['api.ipify.org']});
+
         $locationProvider.hashPrefix('!');
 
-        $routeProvider.otherwise({redirectTo: '/productos'});
+        $routeProvider.otherwise({redirectTo: '/main'});
 
         /*
          $routeProvider.when('/settings/controles', {
@@ -37,9 +40,9 @@
          });
          */
 
-        $routeProvider.when('/mesa/:id', {
-            redirectTo: '/'
-        });
+        // $routeProvider.when('/mesa/:id', {
+        //     redirectTo: '/'
+        // });
 
         $routeProvider.when('/settings/usuarios', {
             templateUrl: 'usuarios/usuarios.html',
@@ -103,6 +106,18 @@
             }
         });
 
+        $routeProvider.when('/main', {
+            templateUrl: 'main/main.html',
+            controller: 'MainController',
+            data: {requiresLogin: false},
+            resolve: { // Any property in resolve should return a promise and is executed before the view is loaded
+                loadMyCtrl: ['$ocLazyLoad', function ($ocLazyLoad) {
+                    // you can lazy load files for an existing module
+                    return $ocLazyLoad.load('main/main.js');
+                }]
+            }
+        });
+
 
     }]).run(function ($rootScope) {
         // Para activar la seguridad en una vista, agregar data:{requiresLogin:false} dentro de $routeProvider.when
@@ -115,8 +130,8 @@
         .controller('AppCtrl', AppCtrl)
         .factory('AppService', AppService);
 
-    AppCtrl.$inject = ['$scope', '$location', 'ProductoInsiteService', 'ComandasService', 'UserService', '$rootScope'];
-    function AppCtrl($scope, $location, ProductoInsiteService, ComandasService, UserService, $rootScope) {
+    AppCtrl.$inject = ['AppService', '$location', 'ProductoInsiteService', 'ComandasService', 'UserService', '$rootScope', 'mvMiPedidoService'];
+    function AppCtrl(AppService, $location, ProductoInsiteService, ComandasService, UserService, $rootScope, mvMiPedidoService) {
 
         var vm = this;
         vm.hideLoader = true;
@@ -134,10 +149,10 @@
         //     console.log(error);
         // };
 
-        $rootScope.$on('login-success', function(data){
+        $rootScope.$on('login-success', function (data) {
             vm.isLogged = true;
         });
-        $rootScope.$on('login-error', function(data){
+        $rootScope.$on('login-error', function (data) {
             vm.isLogged = false;
         });
 
@@ -147,20 +162,25 @@
             localStorage.removeItem(window.app);
         };
 
-        if(UserService.getDataFromToken('usuario_id') != undefined &&
-            UserService.getDataFromToken('usuario_id') != ''){
+        if (UserService.getDataFromToken('usuario_id') != undefined &&
+            UserService.getDataFromToken('usuario_id') != '') {
             vm.isLogged = true;
         }
 
 
-        if ($location.$$path.indexOf('mesa') > -1) {
-            var id = $location.$$path.split('/')[2];
-            UserService.generateSession(id).then(
-                function (data) {
-                    console.log(data);
-                    console.log(UserService.getDataFromToken());
-                }
-            );
+        if (UserService.getDataFromToken('session_id') == undefined ||
+            UserService.getDataFromToken('session_id') == '') {
+
+            AppService.getIp().then(function (data) {
+                UserService.generateSession(data.replace(/["]/g, "").replace(/\./g, '')).then(
+                    function (data) {
+                        console.log(data);
+                        console.log(UserService.getDataFromToken());
+                    }
+                );
+
+            });
+
         }
 
 
@@ -172,28 +192,37 @@
         ProductoInsiteService.listen(function (data) {
             console.log(ProductoInsiteService.producto);
             ProductoInsiteService.producto.mesa_id = UserService.getDataFromToken('mesa_id');
-            ProductoInsiteService.producto.origen_id = 1;
+            ProductoInsiteService.producto.origen_id = 2;
             ProductoInsiteService.producto.usuario_id = UserService.getDataFromToken('usuario_id');
 
 
             ComandasService.save(ProductoInsiteService.producto).then(function (data) {
                 console.log(data);
+                mvMiPedidoService.refresh();
             }).catch(function (data) {
                 console.log(data);
             });
-
         });
 
     }
 
-    AppService.$inject = [];
-    function AppService() {
+    AppService.$inject = ['$http'];
+    function AppService($http) {
         var service = this;
         service.prodToPlato = prodToPlato;
+        service.getIp = getIp;
 
 
         return service;
 
+
+        function getIp() {
+            return $http.get("//api.ipify.org?format=jsonp&callback=?").then(function (data) {
+                return JSON.stringify(data.data.replace('?({"ip":"', '').replace('"});', ''));
+            }).catch(function (data) {
+                console.log(data || "Request failed");
+            });
+        }
 
         function prodToPlato(producto) {
 
@@ -205,7 +234,7 @@
                 status: producto.status,
                 mesa_id: -2,
                 total: producto.total,
-                origen_id: 1, // Restaurant
+                origen_id: 2, // Plugin
                 detalles: []
             };
 
