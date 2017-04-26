@@ -176,11 +176,24 @@
                     function (data) {
                         console.log(data);
                         console.log(UserService.getDataFromToken());
+                        ComandasService.getByMesa(UserService.getDataFromToken('mesa_id'), UserService.getDataFromToken('session_id')).then(
+                            function (data) {
+                                console.log(data);
+                                vm.comanda = data;
+                            }
+                        );
                     }
                 );
 
             });
 
+        } else {
+            ComandasService.getByMesa(UserService.getDataFromToken('mesa_id'), UserService.getDataFromToken('session_id')).then(
+                function (data) {
+                    console.log(data);
+                    vm.comanda = data;
+                }
+            );
         }
 
 
@@ -193,12 +206,28 @@
             console.log(ProductoInsiteService.producto);
             ProductoInsiteService.producto.mesa_id = UserService.getDataFromToken('mesa_id');
             ProductoInsiteService.producto.origen_id = 2;
+            ProductoInsiteService.producto.status = 0;
             ProductoInsiteService.producto.usuario_id = UserService.getDataFromToken('usuario_id');
+            ProductoInsiteService.producto.precio = ProductoInsiteService.producto.precios[0].precio;
 
 
-            ComandasService.save(ProductoInsiteService.producto).then(function (data) {
+            console.log(ProductoInsiteService.producto);
+            var comanda = {
+                mesa_id: UserService.getDataFromToken('mesa_id'),
+                origen_id: 1,
+                usuario_id: UserService.getDataFromToken('usuario_id'),
+                detalles: [ProductoInsiteService.producto]
+            };
+
+            ComandasService.save(comanda).then(function (data) {
                 console.log(data);
                 mvMiPedidoService.refresh();
+                ComandasService.getByMesa(UserService.getDataFromToken('mesa_id'), UserService.getDataFromToken('session_id')).then(
+                    function (data) {
+                        console.log(data);
+                        vm.comanda = data;
+                    }
+                );
             }).catch(function (data) {
                 console.log(data);
             });
