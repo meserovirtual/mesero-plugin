@@ -159,11 +159,29 @@ body {
 .productos-insite-producto-guarnicion{
   display: flex;
   flex-direction: row;
+  background: #FFFFFF;
+  font-size: 17px;
+  padding: 8px;
+
   span:nth-child(1){
     flex: 8;
   }
   span{
     padding: 5px;
+  }
+}
+
+
+
+.productos-insite-producto:hover, .productos-insite-producto-guarnicion:hover{
+  @media (min-width: 600px) {
+    cursor: pointer;
+    background-color: #76986A!important;
+    color: white;
+    -webkit-transition: all .2s ease-in-out;
+    -moz-transition: all .2s ease-in-out;
+    -o-transition: all .2s ease-in-out;
+    transition: all .2s ease-in-out;
   }
 }
 
@@ -316,7 +334,6 @@ body {
   color: black!important;
   height: 30px;
   border-style: none;
-  -webkit-border-radius: 5px;
   padding: 5px;
 
 }
@@ -327,6 +344,17 @@ body {
   font-family: "Roboto-Bold", 'sans-serif';
   padding-right: 10px;
 
+}
+
+
+
+.plato-sin-confirmar{
+  border-top: 5px solid darkred!important;}
+.plato-confirmado{
+  border-top: 5px solid yellow!important;
+}
+.plato-servido{
+  border-top: 5px #79996D solid !important;
 }
 
 .contenedor-mesero-plugin{
@@ -342,3 +370,4 @@ body {
      }
    }
  }
+

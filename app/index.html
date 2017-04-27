@@ -518,7 +518,7 @@
     <usuario-logout ng-if="$ctrl.isLogged" redirect="'/main'"></usuario-logout>
     <img ng-if="!$ctrl.isLogged" src="images/login.svg" alt="" ng-click="appCtrl.goToPagina('/login');">
     <div class="separator"></div>
-    <div class="total-mi-pedido">Total: {{appCtrl.comanda[0].total | currency}}</div>
+    <div class="total-mi-pedido">{{appCtrl.comanda[0].total | currency}}</div>
     <img src="images/menu.svg" ng-click="appCtrl.goToPagina('/main');"/>
     <img src="images/cart.svg" ng-click="appCtrl.goToPagina('/mi-pedido');"/>
     <!--<img src="images/llamar-al-mozo.svg" />-->
@@ -526,7 +526,7 @@
 </div>
 
 <!--<qr-scanner ng-success="onSuccess(data)" width="400" height="300"></qr-scanner>-->
-<div ng-view class="view-container"></div>
+<div ng-view class="view-container" style="margin-top: 40px"></div>
 
 </body>
 </html>
