@@ -128,10 +128,14 @@
         });
     })
         .controller('AppCtrl', AppCtrl)
-        .factory('AppService', AppService);
+        .factory('AppService', AppService)
+        .directive('twitter', twitter)
+        .directive('facebook', facebook);
 
-    AppCtrl.$inject = ['AppService', '$location', 'ProductoInsiteService', 'ComandasService', 'UserService', '$rootScope', 'mvMiPedidoService'];
-    function AppCtrl(AppService, $location, ProductoInsiteService, ComandasService, UserService, $rootScope, mvMiPedidoService) {
+    AppCtrl.$inject = ['AppService', '$location', 'ProductoInsiteService', 'ComandasService', 'UserService',
+        '$rootScope', 'mvMiPedidoService', 'ContactsService'];
+    function AppCtrl(AppService, $location, ProductoInsiteService, ComandasService, UserService,
+                     $rootScope, mvMiPedidoService, ContactsService) {
 
         var vm = this;
         vm.hideLoader = true;
@@ -148,6 +152,11 @@
         // $scope.onVideoError = function(error) {
         //     console.log(error);
         // };
+
+        // INIT
+        ContactsService.facebookInit();
+
+
 
         $rootScope.$on('login-success', function (data) {
             vm.isLogged = true;
@@ -284,5 +293,70 @@
             return plato;
         }
     }
+
+
+    twitter.$inject = ['$timeout'];
+    function twitter($timeout) {
+        return {
+            scope: {
+                'url': '='
+            },
+            controller: function ($scope, $element, $attrs) {
+                var vm = this;
+
+                watchUrl();
+                function watchUrl() {
+                    console.log($scope.url);
+
+                    if ($scope.url == undefined) {
+                        $timeout(watchUrl, 1000);
+                    } else {
+                        twttr.widgets.createShareButton(
+                            'http://meserovirtual.com.ar/plugin/' + $scope.url,
+                            $element[0],
+                            function (el) {
+                            }, {
+                                count: 'none',
+                                text: $attrs.text
+                            }
+                        );
+                    }
+                }
+            }
+        }
+    }
+
+    facebook.$inject = ['$window', '$timeout'];
+    function facebook($window, $timeout) {
+        return {
+            restrict: 'A',
+            scope: {
+                producto: '='
+            },
+            template: '<div class="fb-share-button main-button-face" style="height: 30px; width: 30px;" data-layout="button_count" data-mobile-iframe="true" ' +
+            'data-href="http://meserovirtual.com.ar/plugin/{{producto}}/"></div>',
+            link: function (scope, element, attrs, compile) {
+                scope.$watch(function () {
+                        console.log(scope.producto);
+                        return !!$window.FB;
+                    },
+                    function (fbIsReady) {
+                        if (fbIsReady) {
+                            setFace();
+                        }
+                    });
+
+                function setFace() {
+                    if (scope.producto == undefined) {
+                        $timeout(setFace, 1000)
+                    } else {
+                        $window.FB.XFBML.parse(element.parent()[0]);
+                    }
+                }
+
+            }
+        };
+    }
+
 
 })();

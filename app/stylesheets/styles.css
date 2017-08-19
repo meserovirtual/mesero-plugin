@@ -1,4 +1,4 @@
-@import "https://fonts.googleapis.com/css?family=Roboto";
+@import url("https://fonts.googleapis.com/css?family=Ubuntu:300,400,700");
 /* line 5, ../../../../../../../Users/diegob/.rvm/gems/ruby-head/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
@@ -64,12 +64,137 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
   display: block;
 }
 
-/* line 13, ../sass/styles.scss */
-body {
-  font-family: "Roboto";
+@-webkit-keyframes FadeInTop {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateY(-50%);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: translateY(0);
+  }
+}
+@-moz-keyframes FadeInTop {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateY(-50%);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: translateY(0);
+  }
+}
+@-o-keyframes FadeInTop {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateY(-50%);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: translateY(0);
+  }
+}
+@keyframes FadeInTop {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateY(-50%);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: translateY(0);
+  }
+}
+/* line 59, ../sass/styles.scss */
+.FadeInTop {
+  -webkit-animation-name: FadeInTop;
+  -moz-animation-name: FadeInTop;
+  -o-animation-name: FadeInTop;
+  animation-name: FadeInTop;
 }
 
-/* line 17, ../sass/styles.scss */
+@-webkit-keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@-moz-keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@-webkit-keyframes FadeInLeft {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateX(100%);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: translateX(0);
+  }
+}
+@-moz-keyframes FadeInLeft {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateX(100%);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: translateX(0);
+  }
+}
+@-o-keyframes FadeInLeft {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateX(100%);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: translateX(0);
+  }
+}
+@keyframes FadeInLeft {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateX(100%);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: translateX(0);
+  }
+}
+/* line 138, ../sass/styles.scss */
+.FadeInLeft {
+  -webkit-animation-name: FadeInLeft;
+  -moz-animation-name: FadeInLeft;
+  -o-animation-name: FadeInTop2;
+  animation-name: FadeInLeft;
+}
+
+/* line 157, ../sass/styles.scss */
+body {
+  font-family: 'Ubuntu', sans-serif;
+}
+
+/* line 161, ../sass/styles.scss */
+html {
+  background-color: #263238;
+}
+
+/* line 165, ../sass/styles.scss */
 .form-abm {
   position: fixed;
   width: 100%;
@@ -79,38 +204,69 @@ body {
   background-color: #EEEEEE;
 }
 
-/* line 26, ../sass/styles.scss */
+/* line 174, ../sass/styles.scss */
 .form-open {
   right: 0 !important;
+  background-color: white;
+  -webkit-animation: FadeInLeft ease-in 1;
+  -moz-animation: FadeInLeft ease-in 1;
+  animation: FadeInLeft ease-in 1;
+  -moz-animation-fill-mode: forwards;
+  animation-fill-mode: forwards;
+  -webkit-animation-duration: .3s;
+  -moz-animation-duration: .3s;
+  animation-duration: .3s;
 }
 
-/* line 30, ../sass/styles.scss */
+/* line 188, ../sass/styles.scss */
 .mi-pedido-no-pedido {
   background-color: #DfDfDf !important;
 }
 
-/* line 34, ../sass/styles.scss */
+/* line 192, ../sass/styles.scss */
 .mi-pedido-pedido {
   background-color: #FFFFFF;
   display: flex;
   flex-direction: column;
 }
 
-/* line 40, ../sass/styles.scss */
+/* line 198, ../sass/styles.scss */
 .mi-pedido-top {
   display: flex;
   flex-direction: row;
+  background-color: #263238;
+  border-bottom: 0.1px solid #00ACC1;
+  color: white;
+  line-height: 26px;
+  -webkit-animation: FadeInTop ease-in 1;
+  -moz-animation: FadeInTop ease-in 1;
+  animation: FadeInTop ease-in 1;
+  -moz-animation-fill-mode: forwards;
+  animation-fill-mode: forwards;
+  -webkit-animation-duration: .5s;
+  -moz-animation-duration: .5s;
+  animation-duration: .5s;
 }
 
-/* line 46, ../sass/styles.scss */
+/* line 217, ../sass/styles.scss */
 .mi-pedido-extra {
-  background-color: #D5D5D5;
   display: flex;
   flex-direction: row;
-  padding: 10px;
+  background-color: #263238;
+  border-bottom: 0.1px solid #00ACC1;
+  color: white;
+  line-height: 26px;
+  -webkit-animation: FadeInTop ease-in 1;
+  -moz-animation: FadeInTop ease-in 1;
+  animation: FadeInTop ease-in 1;
+  -moz-animation-fill-mode: forwards;
+  animation-fill-mode: forwards;
+  -webkit-animation-duration: .5s;
+  -moz-animation-duration: .5s;
+  animation-duration: .5s;
 }
 
-/* line 53, ../sass/styles.scss */
+/* line 234, ../sass/styles.scss */
 .mi-pedido-eliminar {
   height: 20px;
   width: 20px;
@@ -118,103 +274,135 @@ body {
   padding: 5px;
 }
 
-/* line 60, ../sass/styles.scss */
+/* line 241, ../sass/styles.scss */
 .mi-pedido-top-left,
 .mi-pedido-extra-left {
   flex: 8;
   margin: 5px;
+  font-size: 17px;
 }
 
-/* line 66, ../sass/styles.scss */
+/* line 248, ../sass/styles.scss */
 .mi-pedido-top-right,
 .mi-pedido-extra-right {
   flex: 1;
   margin: 5px;
+  font-size: 17px;
+  color: #00ACC1;
 }
 
-/* line 72, ../sass/styles.scss */
+/* line 256, ../sass/styles.scss */
 .nav {
   display: flex;
   flex-direction: row;
   align-content: space-between;
-  background-color: #eeeeee;
+  background-color: #263238;
   position: fixed;
+  color: white;
   top: 0;
   left: 0;
   right: 0;
-  height: 30px;
+  height: 28px;
   padding: 5px;
+  z-index: 1200;
 }
-/* line 83, ../sass/styles.scss */
+/* line 269, ../sass/styles.scss */
 .nav img {
-  height: 30px;
-  width: 30px;
+  height: 25px;
+  width: 25px;
 }
-/* line 87, ../sass/styles.scss */
+/* line 273, ../sass/styles.scss */
 .nav .separator {
   flex: 8;
 }
 
-/* line 92, ../sass/styles.scss */
+/* line 278, ../sass/styles.scss */
 .view-container {
   margin-top: 40px;
 }
 
-/* line 96, ../sass/styles.scss */
+/* line 282, ../sass/styles.scss */
 .mi-pedido-titulo {
   width: calc(100% - 20px);
-  background-color: #dcdcdc;
-  color: #90a489;
-  font-family: "Roboto-Bold", 'sans-serif';
+  background-color: #263238;
+  color: #00ACC1;
+  font-family: 'Ubuntu', sans-serif;
   display: inherit;
   padding: 10px;
-  font-size: 7vw;
-}
-@media (min-width: 600px) {
-  /* line 96, ../sass/styles.scss */
-  .mi-pedido-titulo {
-    font-size: 4vw;
-  }
+  font-size: 30px;
+  text-transform: uppercase;
+  -webkit-animation: FadeInTop ease-in 1;
+  -moz-animation: FadeInTop ease-in 1;
+  animation: FadeInTop ease-in 1;
+  -moz-animation-fill-mode: forwards;
+  animation-fill-mode: forwards;
+  -webkit-animation-duration: .5s;
+  -moz-animation-duration: .5s;
+  animation-duration: .5s;
 }
 
-/* line 111, ../sass/styles.scss */
+/* line 301, ../sass/styles.scss */
 .productos-insite-categoria-titulo,
 .productos-insite-producto-guar-titulo {
   width: calc(100% - 20px);
-  background-color: #dcdcdc;
+  background-color: #00ACC1;
   display: inherit;
+  text-transform: uppercase;
   padding: 10px;
-  font-family: "Roboto-Bold", 'sans-serif';
-  font-size: 7vw;
-  color: #76986A;
-}
-@media (min-width: 600px) {
-  /* line 111, ../sass/styles.scss */
-  .productos-insite-categoria-titulo,
-  .productos-insite-producto-guar-titulo {
-    font-size: 4vw;
-  }
+  font-family: 'Ubuntu', sans-serif;
+  font-size: 30px;
+  color: white;
+  -webkit-animation: FadeInTop ease-in 1;
+  -moz-animation: FadeInTop ease-in 1;
+  animation: FadeInTop ease-in 1;
+  -moz-animation-fill-mode: forwards;
+  animation-fill-mode: forwards;
+  -webkit-animation-duration: .5s;
+  -moz-animation-duration: .5s;
+  animation-duration: .5s;
 }
 
-/* line 127, ../sass/styles.scss */
+/* line 324, ../sass/styles.scss */
 .productos-insite-categoria-imagen {
   width: 100%;
+  height: 12.8vw;
+  /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#ffffff+0,e5e5e5+100;White+3D */
+  background: #ffffff;
+  /* Old browsers */
+  background: -moz-linear-gradient(top, #ffffff 0%, #e5e5e5 100%);
+  /* FF3.6-15 */
+  background: -webkit-linear-gradient(top, #ffffff 0%, #e5e5e5 100%);
+  /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(to bottom, #ffffff 0%, #e5e5e5 100%);
+  /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#e5e5e5',GradientType=0 );
+  /* IE6-9 */
 }
-/* line 129, ../sass/styles.scss */
+/* line 332, ../sass/styles.scss */
 .productos-insite-categoria-imagen svg {
-  display: flex;
-  width: 100% !important;
+  margin: auto;
+  width: 95% !important;
   height: 100%;
+  margin-left: 2%;
+  -webkit-animation: FadeIn ease-in 1;
+  -moz-animation: FadeIn ease-in 1;
+  animation: FadeIn ease-in 1;
+  -moz-animation-fill-mode: forwards;
+  animation-fill-mode: forwards;
+  -webkit-animation-duration: .5s;
+  -moz-animation-duration: .5s;
+  animation-duration: .5s;
 }
 
-/* line 136, ../sass/styles.scss */
+/* line 348, ../sass/styles.scss */
 .productos-list h1 {
   Padding: 10px;
-  font-family: "Roboto-Bold", 'sans-serif';
+  font-family: 'Ubuntu', sans-serif;
   font-size: 22px;
+  border-bottom: 1px solid white;
 }
 
-/* line 142, ../sass/styles.scss */
+/* line 356, ../sass/styles.scss */
 .buscador-container {
   background-color: black;
   width: 100%;
@@ -222,17 +410,16 @@ body {
   justify-content: space-around;
   flex-direction: row;
 }
-/* line 148, ../sass/styles.scss */
+/* line 362, ../sass/styles.scss */
 .buscador-container .input {
   display: flex;
-  width: 99%;
-  margin: 5px;
   font-size: 18px;
+  width: 100%;
   color: black;
-  font-family: "Roboto-Bold", 'sans-serif';
+  font-family: 'Ubuntu', sans-serif;
 }
 
-/* line 158, ../sass/styles.scss */
+/* line 371, ../sass/styles.scss */
 .productos-insite-producto,
 .productos-insite-producto-guarnicion {
   display: flex;
@@ -241,19 +428,19 @@ body {
   font-size: 17px;
   padding: 8px;
 }
-/* line 166, ../sass/styles.scss */
+/* line 379, ../sass/styles.scss */
 .productos-insite-producto span:nth-child(1),
 .productos-insite-producto-guarnicion span:nth-child(1) {
   flex: 8;
 }
-/* line 169, ../sass/styles.scss */
+/* line 382, ../sass/styles.scss */
 .productos-insite-producto span,
 .productos-insite-producto-guarnicion span {
   padding: 5px;
 }
 
 @media (min-width: 600px) {
-  /* line 176, ../sass/styles.scss */
+  /* line 389, ../sass/styles.scss */
   .productos-insite-producto:hover, .productos-insite-producto-guarnicion:hover {
     cursor: pointer;
     background-color: #76986A !important;
@@ -265,88 +452,105 @@ body {
   }
 }
 
-/* line 188, ../sass/styles.scss */
+/* line 401, ../sass/styles.scss */
 .productos-insite-producto:nth-child(odd),
 .productos-insite-producto-guarnicion:nth-child(odd) {
-  background-color: #DfDfDf;
+  background-color: white;
 }
 
-/* line 193, ../sass/styles.scss */
+/* line 406, ../sass/styles.scss */
 .productos-insite-detalle {
   display: flex;
   flex-direction: column;
+  text-align: center;
+  margin-top: 38px;
 }
 
-/* line 198, ../sass/styles.scss */
+/* line 414, ../sass/styles.scss */
 .productos-insite-producto {
-  font-family: "Roboto", 'sans-serif';
+  font-family: 'Ubuntu', sans-serif;
   font-size: 16px;
   padding: 5px;
 }
 
-/* line 204, ../sass/styles.scss */
+/* line 420, ../sass/styles.scss */
 .productos-insite-producto-top {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  margin: 10px;
-  font-family: "Roboto-Bold", 'sans-serif';
-  font-size: 24px;
-  color: #000000;
+  font-family: 'Ubuntu', sans-serif;
+  font-size: 20px;
+  background-color: #00ACC1;
+  color: white;
+  padding: 5px;
+  -webkit-animation: FadeInTop ease-in 1;
+  -moz-animation: FadeInTop ease-in 1;
+  animation: FadeInTop ease-in 1;
+  -moz-animation-fill-mode: forwards;
+  animation-fill-mode: forwards;
+  -webkit-animation-duration: .5s;
+  -moz-animation-duration: .5s;
+  animation-duration: .5s;
 }
 
-/* line 213, ../sass/styles.scss */
-.productos-insite-producto-titulo {
-  font-weight: bold;
-}
-
-/* line 216, ../sass/styles.scss */
+/* line 439, ../sass/styles.scss */
 .productos-insite-producto-precio {
-  font-weight: bold;
-  color: #90a489;
+  color: white;
 }
 
-/* line 221, ../sass/styles.scss */
+/* line 444, ../sass/styles.scss */
 .productos-insite-producto-add-remove {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  background: #D8D8D8;
-  font-size: 24px;
-  font-family: "Roboto", 'sans-serif';
+  background: #263238;
+  color: white;
+  font-size: 32px;
+  padding-top: 5px;
+  font-family: 'Ubuntu', sans-serif;
 }
-/* line 228, ../sass/styles.scss */
+/* line 453, ../sass/styles.scss */
 .productos-insite-producto-add-remove button {
   border-style: none;
   background: none;
 }
 
-/* line 235, ../sass/styles.scss */
+/* line 460, ../sass/styles.scss */
 .productos-insite-producto-comentario {
-  display: flex;
+  color: black;
+  outline: none;
+  font-family: 'Ubuntu', sans-serif;
+  /* Rectangle 2 Copy 5: */
+  background: white;
+  border-radius: 2px;
+  border: .5px solid darkgray;
+  width: 90%;
   margin: 5px auto;
-  width: 97%;
-  background: #D8D8D8;
-  border: 1px solid #979797;
-  box-shadow: inset 0 1px 3px 0 rgba(0, 0, 0, 0.5);
-  border-radius: 8px;
-}
-
-/* line 246, ../sass/styles.scss */
-.productos-insite-producto-description {
-  padding: 10px;
-  font-family: "Roboto", 'sans-serif';
+  padding-left: 10px;
+  padding-right: 10px;
   font-size: 16px;
 }
 
-/* line 252, ../sass/styles.scss */
+/* line 476, ../sass/styles.scss */
+.productos-insite-producto-description {
+  padding: 10px;
+  font-family: 'Ubuntu', sans-serif;
+  font-size: 16px;
+  line-height: 26px;
+  text-align: -webkit-left;
+  border-top: 1px solid #263238;
+  border-bottom: 1px solid #263238;
+  color: black;
+}
+
+/* line 487, ../sass/styles.scss */
 .botonera {
   text-align: center;
   margin-top: 10px;
   margin-bottom: 10px;
 }
 
-/* line 258, ../sass/styles.scss */
+/* line 493, ../sass/styles.scss */
 .boton-agregar, .boton-cancelar, .boton-ok, .boton-eliminar, .boton-calendario {
   position: relative;
   height: 37px;
@@ -364,7 +568,7 @@ body {
   transition: all .4s ease-in-out;
 }
 
-/* line 274, ../sass/styles.scss */
+/* line 509, ../sass/styles.scss */
 .btn-agregar, .btn-cancelar, .btn-ok, .btn-eliminar, .btn-calendario {
   position: relative;
   color: #fff;
@@ -383,37 +587,37 @@ body {
   transition: all .4s ease-in-out;
 }
 
-/* line 292, ../sass/styles.scss */
+/* line 527, ../sass/styles.scss */
 .boton-cancelar, .btn-cancelar {
   background-color: #ED7161 !important;
 }
 
-/* line 295, ../sass/styles.scss */
+/* line 530, ../sass/styles.scss */
 .boton-agregar, .btn-agregar {
   background-color: #293333;
 }
 
-/* line 298, ../sass/styles.scss */
+/* line 533, ../sass/styles.scss */
 .boton-ok, .btn-ok {
   background-color: #00CE5D;
 }
 
-/* line 301, ../sass/styles.scss */
+/* line 536, ../sass/styles.scss */
 .boton-eliminar, .btn-eliminar {
   background-color: sandybrown;
 }
 
-/* line 304, ../sass/styles.scss */
+/* line 539, ../sass/styles.scss */
 .boton-calendario, .btn-calendario {
   background-color: #447EAF;
 }
 
-/* line 308, ../sass/styles.scss */
+/* line 543, ../sass/styles.scss */
 .fa {
   color: white;
 }
 
-/* line 312, ../sass/styles.scss */
+/* line 547, ../sass/styles.scss */
 .boton-agregar:hover, .boton-cancelar:hover, .boton-ok:hover, .boton-eliminar:hover, .boton-calendario:hover,
 .btn-agregar:hover, .btn-cancelar:hover, .btn-ok:hover, .btn-eliminar:hover, .btn-calendario:hover {
   box-shadow: 0 2px 2px rgba(0, 0, 0, 0.2);
@@ -430,7 +634,7 @@ body {
   transition: all .4s ease-in-out;
 }
 
-/* line 325, ../sass/styles.scss */
+/* line 560, ../sass/styles.scss */
 .btn-agregar:hover, .btn-cancelar:hover, .btn-ok:hover, .btn-eliminar:hover, .btn-calendario:hover {
   -ms-transform: scale(1, 1);
   /* IE 9 */
@@ -439,7 +643,7 @@ body {
   transform: scale(1, 1);
 }
 
-/* line 331, ../sass/styles.scss */
+/* line 566, ../sass/styles.scss */
 .input input {
   width: 100%;
   font-size: 18px !important;
@@ -449,38 +653,69 @@ body {
   padding: 5px;
 }
 
-/* line 341, ../sass/styles.scss */
+/* line 576, ../sass/styles.scss */
 .total-mi-pedido {
   margin: 4px auto;
-  font-size: 28px;
-  font-family: "Roboto-Bold", 'sans-serif';
+  font-size: 21px;
+  font-family: 'Ubuntu', sans-serif;
   padding-right: 10px;
 }
 
-/* line 351, ../sass/styles.scss */
+/* line 586, ../sass/styles.scss */
 .plato-sin-confirmar {
-  border-top: 5px solid darkred !important;
+  border-right: 40px solid #FFEB3B !important;
+  -webkit-animation: FadeIn ease-in 1;
+  -moz-animation: FadeIn ease-in 1;
+  animation: FadeIn ease-in 1;
+  -moz-animation-fill-mode: forwards;
+  animation-fill-mode: forwards;
+  -webkit-animation-duration: .5s;
+  -moz-animation-duration: .5s;
+  animation-duration: .5s;
 }
 
-/* line 353, ../sass/styles.scss */
+/* line 598, ../sass/styles.scss */
 .plato-confirmado {
-  border-top: 5px solid yellow !important;
+  border-right: 40px solid #CDDC39 !important;
+  -webkit-animation: FadeIn ease-in 1;
+  -moz-animation: FadeIn ease-in 1;
+  animation: FadeIn ease-in 1;
+  -moz-animation-fill-mode: forwards;
+  animation-fill-mode: forwards;
+  -webkit-animation-duration: .5s;
+  -moz-animation-duration: .5s;
+  animation-duration: .5s;
 }
 
-/* line 356, ../sass/styles.scss */
+/* line 609, ../sass/styles.scss */
 .plato-servido {
-  border-top: 5px #79996D solid !important;
+  border-right: 40px #00ACC1 solid !important;
+  -webkit-animation: FadeIn ease-in 1;
+  -moz-animation: FadeIn ease-in 1;
+  animation: FadeIn ease-in 1;
+  -moz-animation-fill-mode: forwards;
+  animation-fill-mode: forwards;
+  -webkit-animation-duration: .5s;
+  -moz-animation-duration: .5s;
+  animation-duration: .5s;
 }
 
-/* line 361, ../sass/styles.scss */
+/* line 623, ../sass/styles.scss */
 .contenedor-mesero-plugin mv-productos-insite {
   flex: 3;
+  z-index: 1000;
 }
 
 @media (max-width: 600px) {
-  /* line 367, ../sass/styles.scss */
+  /* line 630, ../sass/styles.scss */
   .contenedor-mesero-plugin mv-mi-pedido {
     display: none;
     visibility: hidden;
   }
+}
+
+/* line 639, ../sass/styles.scss */
+mv-mi-pedido {
+  background-color: #263238;
+  color: white;
 }
