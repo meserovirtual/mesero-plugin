@@ -16,6 +16,7 @@
         'mvComandas',
         'mvMiPedido',
         'mvContacts',
+        'mvEnvios',
         'LangTables',
         'acHelper'
     ]).config(['$locationProvider', '$routeProvider', 'jwtOptionsProvider', function ($locationProvider, $routeProvider, jwtOptionsProvider) {
@@ -133,9 +134,9 @@
         .directive('facebook', facebook);
 
     AppCtrl.$inject = ['AppService', '$location', 'ProductoInsiteService', 'ComandasService', 'UserService',
-        '$rootScope', 'mvMiPedidoService', 'ContactsService'];
+        '$rootScope', 'mvMiPedidoService', 'ContactsService', 'ComandaService'];
     function AppCtrl(AppService, $location, ProductoInsiteService, ComandasService, UserService,
-                     $rootScope, mvMiPedidoService, ContactsService) {
+                     $rootScope, mvMiPedidoService, ContactsService, ComandaService) {
 
         var vm = this;
         vm.hideLoader = true;
@@ -183,11 +184,11 @@
             AppService.getIp().then(function (data) {
                 UserService.generateSession(data.replace(/["]/g, "").replace(/\./g, '')).then(
                     function (data) {
-                        console.log(data);
+                        //console.log(data);
                         console.log(UserService.getDataFromToken());
                         ComandasService.getByMesa(UserService.getDataFromToken('mesa_id'), UserService.getDataFromToken('session_id')).then(
                             function (data) {
-                                console.log(data);
+                                //console.log(data);
                                 vm.comanda = data;
                             }
                         );
@@ -199,7 +200,7 @@
         } else {
             ComandasService.getByMesa(UserService.getDataFromToken('mesa_id'), UserService.getDataFromToken('session_id')).then(
                 function (data) {
-                    console.log(data);
+                    //console.log(data);
                     vm.comanda = data;
                 }
             );
@@ -219,27 +220,53 @@
             ProductoInsiteService.producto.usuario_id = UserService.getDataFromToken('usuario_id');
             ProductoInsiteService.producto.precio = ProductoInsiteService.producto.precios[0].precio;
 
-
-            console.log(ProductoInsiteService.producto);
             var comanda = {
                 mesa_id: UserService.getDataFromToken('mesa_id'),
                 origen_id: 1,
-                usuario_id: UserService.getDataFromToken('usuario_id'),
-                detalles: [ProductoInsiteService.producto]
+                //usuario_id: UserService.getDataFromToken('usuario_id'),
+                usuario_id: UserService.getFromToken().data.id,
+                detalles: [ProductoInsiteService.producto],
+                status: 1
             };
 
+            //console.log(UserService.getDataFromToken('usuario_id'));  El usuario_id me llega undefined, x eso opte x usar el getFromToken()
+            //console.log(UserService.getFromToken());
+            //console.log(UserService.getDataFromToken());
+            console.log(comanda);
+
             ComandasService.save(comanda).then(function (data) {
-                console.log(data);
                 mvMiPedidoService.refresh();
                 ComandasService.getByMesa(UserService.getDataFromToken('mesa_id'), UserService.getDataFromToken('session_id')).then(
                     function (data) {
-                        console.log(data);
+                        //console.log(data);
                         vm.comanda = data;
+                        var total = 0.00;
+                        var detalles = Object.getOwnPropertyNames(data[0].detalles);
+                        detalles.forEach(function (item, index, array) {
+                            console.log(data[0].detalles[item]);
+                            total = total + (parseFloat(data[0].detalles[item].precio) * data[0].detalles[item].cantidad);
+                        });
+                        comanda.total = total;
+                        comanda.comanda_id = data[0].comanda_id;
+                        ComandasService.updateComanda2(comanda).then(function(data){
+                            console.log(data);
+                            vm.comanda[0].total = total;
+                            vm.comanda[0].usuario_id = comanda.usuario_id;
+                        }).catch(function (data) {
+                            console.log(data);
+                        });
                     }
                 );
             }).catch(function (data) {
                 console.log(data);
             });
+        });
+
+
+        ComandaService.listen(function(data){
+            console.log(ComandaService.comanda);
+            console.log(vm.comanda);
+            vm.comanda[0].total = ComandaService.comanda.total;
         });
 
     }
@@ -306,13 +333,13 @@
 
                 watchUrl();
                 function watchUrl() {
-                    console.log($scope.url);
+                    //console.log($scope.url);
 
                     if ($scope.url == undefined) {
                         $timeout(watchUrl, 1000);
                     } else {
                         twttr.widgets.createShareButton(
-                            'http://meserovirtual.com.ar/plugin/' + $scope.url,
+                            'http://meserovirtual.com.ar/' + $scope.url,
                             $element[0],
                             function (el) {
                             }, {
@@ -337,7 +364,7 @@
             'data-href="http://meserovirtual.com.ar/plugin/{{producto}}/"></div>',
             link: function (scope, element, attrs, compile) {
                 scope.$watch(function () {
-                        console.log(scope.producto);
+                        //console.log(scope.producto);
                         return !!$window.FB;
                     },
                     function (fbIsReady) {

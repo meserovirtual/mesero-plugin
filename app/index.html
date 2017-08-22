@@ -420,6 +420,7 @@
                         'bower_components/mv-angular-comandas/mv-comandas.js',
                         'bower_components/mv-angular-comandas/mv-mi-pedido.js',
                         'bower_components/mv-angular-contacts/mv-contacts.js',
+                        'bower_components/mv-angular-cajas/mv-envios.js',
 //                        'bower_components/angular-qr-scanner/qr-scanner.js',
 //                        'bower_components/angular-qr-scanner/src/jsqrcode-combined.min.js',
                         'http://platform.twitter.com/widgets.js',
@@ -520,8 +521,8 @@
     <img ng-if="!$ctrl.isLogged" src="images/login.svg" alt="" ng-click="appCtrl.goToPagina('/login');">
     <div class="separator"></div>
     <div class="total-mi-pedido">{{appCtrl.comanda[0].total | currency}}</div>
-    <img src="images/menu.svg" ng-click="appCtrl.goToPagina('/main');"/>
-    <img src="images/cart.svg" ng-click="appCtrl.goToPagina('/mi-pedido');"/>
+    <img src="images/menu.svg" ng-click="appCtrl.goToPagina('/main');" style="cursor: pointer;"/>
+    <img src="images/cart.svg" ng-click="appCtrl.goToPagina('/mi-pedido');" style="cursor: pointer;"/>
     <!--<img src="images/llamar-al-mozo.svg" />-->
     <!--<img src="images/boton-cobrar.svg" />-->
 </div>

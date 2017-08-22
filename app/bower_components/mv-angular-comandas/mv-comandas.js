@@ -35,6 +35,8 @@
         service.cerrar = cerrar;
         service.quitar = quitar;
         service.pedirPlato = pedirPlato;
+        service.createReserva = createReserva;
+        service.updateComanda2 = updateComanda2;
 
         service.update = update;
 
@@ -132,7 +134,7 @@
          * @returns {*}
          */
         function save(comanda) {
-
+            console.log(comanda);
             var deferred = $q.defer();
 
             if (comanda.comanda_id != undefined) {
@@ -311,6 +313,22 @@
                 });
         }
 
+        function createReserva(reserva) {
+            return $http.post(url,
+                {
+                    'function': 'createReserva',
+                    'reserva': JSON.stringify(reserva)
+                })
+                .then(function (response) {
+                    ComandasVars.clearCache = true;
+                    return response.data;
+                })
+                .catch(function (response) {
+                    ComandasVars.clearCache = true;
+                    ErrorHandler(response)
+                });
+        }
+
 
         /** @name: update
          * @param comanda
@@ -320,6 +338,23 @@
             return $http.post(url,
                 {
                     'function': 'updateComanda',
+                    'comanda': JSON.stringify(comanda)
+                })
+                .then(function (response) {
+                    ComandasVars.clearCache = true;
+                    return response.data;
+                })
+                .catch(function (response) {
+                    ComandasVars.clearCache = true;
+                    ErrorHandler(response.data)
+                });
+        }
+
+
+        function updateComanda2(comanda) {
+            return $http.post(url,
+                {
+                    'function': 'updateComanda2',
                     'comanda': JSON.stringify(comanda)
                 })
                 .then(function (response) {

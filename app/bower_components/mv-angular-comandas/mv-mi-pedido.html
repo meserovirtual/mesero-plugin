@@ -14,18 +14,34 @@
              ng-repeat="item in $ctrl.comanda[0].detalles">
             <div class="mi-pedido-top" ng-class="{'mi-pedido-no-pedido': item.status == 1}">
                 <span class="mi-pedido-top-left">{{item.nombre}}</span>
-                <span class="mi-pedido-top-right">{{item.precio | currency}}</span>
+                <span class="mi-pedido-top-left">{{item.cantidad}}</span>
+                <span class="mi-pedido-top-right">{{(item.precio * item.cantidad) | currency}}</span>
             </div>
             <div class="mi-pedido-extra" ng-repeat="extra in item.extras">
                 <span class="mi-pedido-extra-left">{{extra.extra}}</span>
                 <span class="mi-pedido-extra-right">{{extra.precio | currency}}</span>
             </div>
-            <img ng-if="item.status == 1" class="mi-pedido-eliminar" ng-click="$ctrl.quitar(item.comanda_detalle_id)" src="images/eliminar.svg"/>
+            <!--<img ng-if="item.status == 1" class="mi-pedido-eliminar" ng-click="$ctrl.quitar(item.comanda_detalle_id)" src="images/eliminar.svg"/>-->
+            <img ng-if="item.status == 1" class="mi-pedido-eliminar" ng-click="$ctrl.quitar(item)" src="images/eliminar.svg"/>
         </div>
     </div>
+    <div class="" style="padding:10px;color:#FFFFFF;background:#00ACC1;font-size: 22px;">
+        <label>Dónde vas a comer?</label>
+    </div>
+    <div class="" style="padding:10px;">
+        <label>Ingrese comensales </label><input type="number" ng-model="$ctrl.comensales">
+    </div>
     <div class="botonera">
+        <button type="button" class="boton-ok" ng-click="$ctrl.saveReserva();" title="En el Resto">
+            <i class="fa fa-cutlery" aria-hidden="true"></i>
+        </button>
+        <button type="button" class="boton-cancelar" ng-click="$ctrl.saveDelivery();" title="En Casa">
+            <i class="fa fa-motorcycle" aria-hidden="true"></i>
+        </button>
+    </div>
+    <!--<div class="botonera">
         <button ng-click="$ctrl.detailsOpen = true; $ctrl.producto = {} ;">{{'NEW'|xlat}}</button>
         <button ng-click="$ctrl.detailsOpen = true; $ctrl.producto = {} ;">Ordenar</button>
-    </div>
+    </div>-->
 </div>
 

@@ -192,8 +192,6 @@ GROUP BY c . comanda_id , c . status , cd . comanda_detalle_id , cd . producto_i
 
         if (sizeof($result) > 0) {
 //            $SQL = 'update comandas set total = (select sum()) where comanda_id = '. $result.' and status = 1';
-
-
             $result = $result[0]['comanda_id'];
         } else {
             $data = array(
@@ -248,16 +246,27 @@ GROUP BY c . comanda_id , c . status , cd . comanda_detalle_id , cd . producto_i
             $decoded = self::checkDetalles($params);
         }
 
-
-        $data = array(
-            'producto_id' => $decoded->producto_id,
-            'status' => 1,
-            'comentarios' => $decoded->comentarios,
-            'comanda_id' => $decoded->comanda_id,
-            'cantidad' => $decoded->cantidad,
-            'precio' => $decoded->precios[0]->precio,
-            'session_id' => getDataFromToken('session_id')
-        );
+        if($innerCall) {
+            $data = array(
+                'producto_id' => $decoded->detalles[0]->producto_id,
+                'status' => 1,
+                'comentarios' => $decoded->detalles[0]->comentarios,
+                'comanda_id' => $decoded->comanda_id,
+                'cantidad' => $decoded->detalles[0]->cantidad,
+                'precio' => $decoded->detalles[0]->precios[0]->precio,
+                'session_id' => getDataFromToken('session_id')
+            );
+        } else {
+            $data = array(
+                'producto_id' => $decoded->producto_id,
+                'status' => 1,
+                'comentarios' => $decoded->comentarios,
+                'comanda_id' => $decoded->comanda_id,
+                'cantidad' => $decoded->cantidad,
+                'precio' => $decoded->precios[0]->precio,
+                'session_id' => getDataFromToken('session_id')
+            );
+        }
 
         $results = $db->insert('comandas_detalles', $data);
 
@@ -354,6 +363,35 @@ GROUP BY c . comanda_id , c . status , cd . comanda_detalle_id , cd . producto_i
         return $results > -1;
     }
 
+
+    function createReserva($params)
+    {
+        $db = self::$instance->db;
+        $reserva_decoded = self::checkReserva(json_decode($params["reserva"]));
+
+        $db->startTransaction();
+
+        $data = array(
+            'comanda_id' => $reserva_decoded->comanda_id,
+            'sucursal_id' => $reserva_decoded->sucursal_id,
+            'comensales' => $reserva_decoded->comensales,
+            'fecha' => $reserva_decoded->fecha,
+            'pagado' => $reserva_decoded->pagado
+        );
+
+        $result = $db->insert('reservas', $data);
+        if ($result > -1) {
+            $db->commit();
+            header('HTTP/1.0 200 Ok');
+            echo json_encode($result);
+        } else {
+            $db->rollback();
+            header('HTTP/1.0 500 Internal Server Error');
+            echo $db->getLastError();
+        }
+    }
+
+
     /**
      * @description Modifica un comanda, sus fotos, precios y le asigna las categorias
      * @param $product
@@ -399,6 +437,35 @@ GROUP BY c . comanda_id , c . status , cd . comanda_detalle_id , cd . producto_i
                 }
             }
 
+            $db->commit();
+            header('HTTP / 1.0 200 Ok');
+            echo json_encode($result);
+        } else {
+            $db->rollback();
+            header('HTTP / 1.0 500 Internal Server Error');
+            echo $db->getLastError();
+        }
+    }
+
+    function updateComanda2($params)
+    {
+        $db = self::$instance->db;
+        $db->startTransaction();
+        $decoded = self::checkComanda(json_decode($params["comanda"]));
+
+        $db->where('comanda_id', $decoded->comanda_id);
+
+        $data = array(
+            'usuario_id' => $decoded->usuario_id,
+            'status' => $decoded->status,
+            'mesa_id' => $decoded->mesa_id,
+            'total' => $decoded->total,
+            'origen_id' => $decoded->origen_id
+        );
+
+        $result = $db->update('comandas', $data);
+
+        if ($result) {
             $db->commit();
             header('HTTP / 1.0 200 Ok');
             echo json_encode($result);
@@ -544,6 +611,18 @@ GROUP BY c . comanda_id , c . status , cd . comanda_detalle_id , cd . producto_i
             $extra->selected = (!array_key_exists("selected", $extra)) ? false : $extra->selected;
         }
         return $extras;
+    }
+
+
+    function checkReserva($reserva)
+    {
+        $reserva->comanda_id = (!array_key_exists("comanda_id", $reserva)) ? -1 : $reserva->comanda_id;
+        $reserva->sucursal_id = (!array_key_exists("sucursal_id", $reserva)) ? -1 : $reserva->sucursal_id;
+        $reserva->comensales = (!array_key_exists("comensales", $reserva)) ? -2 : $reserva->comensales;
+        $reserva->fecha = (!array_key_exists("fecha", $reserva)) ? null : $reserva->fecha;
+        $reserva->pagado = (!array_key_exists("pagado", $reserva)) ? 0.0 : $reserva->pagado;
+
+        return $reserva;
     }
 
 }
