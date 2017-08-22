@@ -26,13 +26,22 @@
 
         vm.comandas = [];
         vm.comanda = {};
-        vm.comensales = 0;
+        vm.comensales = 1;
         vm.detalles = [];
+        vm.title = "Dónde vas a comer?";
+        vm.enableReserva = false;
+        vm.enableDelivery = false;
+        vm.fecha_reserva = new Date;
+        vm.hora_reserva = new Date;
+        vm.usuario = {};
 
         //FUNCIONES
         vm.quitar = quitar;
         vm.saveReserva = saveReserva;
         vm.saveDelivery = saveDelivery;
+        vm.showReserva = showReserva;
+        vm.showDelivery = showDelivery;
+        vm.limpiarVariables = limpiarVariables;
 
 
         $rootScope.$on('miPedidoRefresh', function(){
@@ -51,6 +60,7 @@
             }
         );
 
+        //console.log(UserService.getFromToken().data);
 
         /*
         function quitar(comanda_detalle_id) {
@@ -102,20 +112,70 @@
             });
         }
 
+
+        function showReserva() {
+            vm.title = "Reserva";
+
+            vm.enableReserva = true;
+            vm.enableDelivery = false;
+        }
+
+
+        function showDelivery() {
+            vm.title = "Delivery";
+
+            vm.enableReserva = false;
+            vm.enableDelivery = true;
+
+            UserService.get('0,1,2,3').then(function(user){
+                console.log(vm.comanda[0]);
+                //var encontrado = false;
+                var usuarios = Object.getOwnPropertyNames(user);
+                usuarios.forEach(function (item, index, array) {
+                    //console.log(user[item]);
+                    //if(user[item].usuario_id == vm.comanda[0].usuario_id) {
+                    if(user[item].usuario_id == UserService.getFromToken().data.id) {
+                        vm.usuario = user[item];
+                        //encontrado = true;
+                    }
+                });
+            }).catch(function(error){
+                console.log(error);
+            });
+
+            console.log(vm.usuario);
+        }
+
+        function limpiarVariables() {
+            vm.comensales = 1;
+            vm.title = "Dónde vas a comer?";
+            vm.enableReserva = false;
+            vm.enableDelivery = false;
+            vm.fecha_reserva = new Date;
+            vm.hora_reserva = new Date;
+        }
+
         function saveReserva() {
             if(vm.comensales <= 0) {
                 MvUtils.showMessage('error', 'Los comensales no pueden ser menor a 0');
                 return;
             }
+            console.log(vm.fecha_reserva);
+            console.log(vm.hora_reserva);
+            var reserva_fecha = new Date(vm.fecha_reserva.getFullYear(), vm.fecha_reserva.getMonth(), vm.fecha_reserva.getDate(), vm.hora_reserva.getHours(), vm.hora_reserva.getMinutes());
+
+            console.log(reserva_fecha);
             var reserva = {
                 comanda_id: vm.comanda[0].comanda_id,
                 sucursal_id: 1,
                 comensales: vm.comensales,
-                //fecha:
+                fecha: reserva_fecha,
                 pagado: 0   //'0-No Pagada, 1-Pagada'
             };
             ComandasService.createReserva(reserva).then(function(data){
-                console.log(data);
+                //console.log(data);
+                limpiarVariables();
+                MvUtils.showMessage('success', 'Su reserva ya fue guardado. Lo esperamos');
             }).catch(function(error){
                 console.log(error);
             });
@@ -123,9 +183,24 @@
 
 
         function saveDelivery() {
+            console.log(vm.usuario);
+            if(vm.usuario == {}) {
+                MvUtils.showMessage('error', 'Cliente no encontrado');
+            } else {
+                vm.detalles = vm.comanda[0].detalles;
+                //Creo el envio
+                EnviosService.save(createEnvio(vm.usuario)).then(function (data) {
+                    //console.log(data);
+                    limpiarVariables();
+                    MvUtils.showMessage('success', 'Su delivery ya fue guardado. Espere su pedido');
+                }).catch(function (data) {
+                    console.log(data);
+                });
+            }
+            /*
             //rol_id = 3 clientes
             UserService.get('0,1,2,3').then(function(user){
-                console.log(vm.comanda[0]);
+                //console.log(vm.comanda[0]);
                 var encontrado = false;
                 var usuario = {};
                 var usuarios = Object.getOwnPropertyNames(user);
@@ -136,13 +211,14 @@
                         encontrado = true;
                     }
                 });
-                console.log(usuario);
+                //console.log(usuario);
                 if(encontrado) {
                     vm.detalles = vm.comanda[0].detalles;
                     //Creo el envio
                     EnviosService.save(createEnvio(usuario)).then(function (data) {
-                        console.log(data);
-                        console.log('Envio creado');
+                        //console.log(data);
+                        limpiarVariables();
+                        MvUtils.showMessage('success', 'Su delivery ya fue guardado. Espere su pedido');
                     }).catch(function (data) {
                         console.log(data);
                     });
@@ -151,6 +227,7 @@
             }).catch(function(error){
                 console.log(error);
             });
+            */
         }
 
         function createEnvio(usuario) {

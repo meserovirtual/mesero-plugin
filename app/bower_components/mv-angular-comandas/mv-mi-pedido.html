@@ -26,17 +26,53 @@
         </div>
     </div>
     <div class="" style="padding:10px;color:#FFFFFF;background:#00ACC1;font-size: 22px;">
-        <label>Dónde vas a comer?</label>
+        <label>{{$ctrl.title}}</label>
     </div>
-    <div class="" style="padding:10px;">
-        <label>Ingrese comensales </label><input type="number" ng-model="$ctrl.comensales">
+    <div class="" style="padding:10px;" ng-if="$ctrl.enableReserva">
+        <div class="input">
+            <label>Ingrese comensales</label>
+            <input type="number" ng-model="$ctrl.comensales">
+        </div>
+        <div class="input">
+            <label>Fecha Reserva</label>
+            <input type="date" ng-model="$ctrl.fecha_reserva">
+        </div>
+        <div class="input">
+            <label>Hora Reserva</label>
+            <input type="time" ng-model="$ctrl.hora_reserva">
+        </div>
     </div>
-    <div class="botonera">
-        <button type="button" class="boton-ok" ng-click="$ctrl.saveReserva();" title="En el Resto">
+    <div class="" style="padding:10px;" ng-if="$ctrl.enableDelivery">
+        <div>
+            <span style="font-weight: bolder">Cliente: </span><span style="">{{$ctrl.usuario.apellido + ", " + $ctrl.usuario.nombre}}</span>
+        </div>
+        <div>
+            <span style="font-weight: bolder">Dirección: </span><span style="">{{$ctrl.usuario.direccion}}</span>
+        </div>
+        <div>
+            <span style="font-weight: bolder">Teléfono: </span><span style="">{{$ctrl.usuario.telefono}}</span>
+        </div>
+        <div>
+            <span style="font-weight: bolder">Mail: </span><span style="">{{$ctrl.usuario.mail}}</span>
+        </div>
+    </div>
+    <div class="botonera" ng-if="!$ctrl.enableDelivery && !$ctrl.enableReserva">
+        <button type="button" class="boton-ok" ng-click="$ctrl.showReserva();" title="En el Resto">
             <i class="fa fa-cutlery" aria-hidden="true"></i>
         </button>
-        <button type="button" class="boton-cancelar" ng-click="$ctrl.saveDelivery();" title="En Casa">
+        <button type="button" class="boton-cancelar" ng-click="$ctrl.showDelivery();" title="En Casa">
             <i class="fa fa-motorcycle" aria-hidden="true"></i>
+        </button>
+    </div>
+    <div class="botonera" ng-if="$ctrl.enableDelivery || $ctrl.enableReserva">
+        <button type="button" class="boton-ok" ng-click="$ctrl.saveReserva();" title="Confirmar Resto" ng-if="$ctrl.enableReserva">
+            <i class="fa fa-check" aria-hidden="true"></i>
+        </button>
+        <button type="button" class="boton-ok" ng-click="$ctrl.saveDelivery();" title="Confirmar Delivery" ng-if="$ctrl.enableDelivery">
+            <i class="fa fa-check" aria-hidden="true"></i>
+        </button>
+        <button type="button" class="boton-cancelar" ng-click="$ctrl.enableReserva=false;$ctrl.enableDelivery=false;$ctrl.limpiarVariables();" title="Cancelar">
+            <i class="fa fa-times" aria-hidden="true"></i>
         </button>
     </div>
     <!--<div class="botonera">
