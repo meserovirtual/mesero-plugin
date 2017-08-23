@@ -16,12 +16,14 @@
         }
     }
 
-    MvMiPedidoController.$inject = ['ComandasService', 'UserService', '$rootScope', 'ComandaService', 'MvUtils', 'EnviosService'];
+    MvMiPedidoController.$inject = ['ComandasService', 'UserService', '$rootScope', 'ComandaService', 'MvUtils',
+        'EnviosService', '$interval'];
     /**
      * @param MvMiPedido
      * @constructor
      */
-    function MvMiPedidoController(ComandasService, UserService, $rootScope, ComandaService, MvUtils, EnviosService) {
+    function MvMiPedidoController(ComandasService, UserService, $rootScope, ComandaService, MvUtils,
+                                  EnviosService, $interval) {
         var vm = this;
 
         vm.comandas = [];
@@ -44,13 +46,30 @@
         vm.limpiarVariables = limpiarVariables;
 
 
-        $rootScope.$on('miPedidoRefresh', function(){
+        $interval(function () {
+            loadComandas();
+        }, 10000);
+
+        function loadComandas() {
             ComandasService.getByMesa(UserService.getDataFromToken('mesa_id'), UserService.getDataFromToken('session_id')).then(
                 function (data) {
                     //console.log(data);
                     vm.comanda = data;
                 }
             );
+        }
+
+
+        $rootScope.$on('miPedidoRefresh', function(){
+            loadComandas();
+            /*
+            ComandasService.getByMesa(UserService.getDataFromToken('mesa_id'), UserService.getDataFromToken('session_id')).then(
+                function (data) {
+                    //console.log(data);
+                    vm.comanda = data;
+                }
+            );
+            */
         });
 
         ComandasService.getByMesa(UserService.getDataFromToken('mesa_id'), UserService.getDataFromToken('session_id')).then(
