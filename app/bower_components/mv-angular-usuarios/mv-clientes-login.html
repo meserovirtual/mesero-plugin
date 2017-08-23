@@ -15,6 +15,9 @@
     <div class="botonera">
         <button ac-validator ng-click="$ctrl.login()">{{'LOGIN' | xlat}}</button>
     </div>
+    <div class="" style="text-align: center">
+        <label>¿Aún no tienes cuenta? </label><span ng-click="$ctrl.registrar();" style="cursor: pointer;">Click aqui</span>
+    </div>
     <div class="social" ng-if="$ctrl.social">
         <span>o</span>
         <button id="facebook" ng-click="$ctrl.loginFacebook()"></button>

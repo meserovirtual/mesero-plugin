@@ -63,6 +63,7 @@
         vm.login = login;
         vm.loginFacebook = loginFacebook;
         vm.loginGoogle = loginGoogle;
+        vm.registrar = registrar;
 
 
         function login() {
@@ -86,6 +87,11 @@
             UserService.loginGoogle(function (data) {
                 $location.path(vm.dir);
             })
+        }
+
+
+        function registrar() {
+            $location.path('/registro');
         }
 
 
@@ -203,7 +209,7 @@
                     return (jwtHelper.decodeToken(globals)).data[field];
                 }
             } else {
-                logout('/login');
+                //logout('/login');
                 return false;
             }
         }

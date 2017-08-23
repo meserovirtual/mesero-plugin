@@ -17,6 +17,7 @@
         'mvMiPedido',
         'mvContacts',
         'mvEnvios',
+        'mvUsuariosNuevo',
         'LangTables',
         'acHelper'
     ]).config(['$locationProvider', '$routeProvider', 'jwtOptionsProvider', function ($locationProvider, $routeProvider, jwtOptionsProvider) {
@@ -103,6 +104,18 @@
                 loadMyCtrl: ['$ocLazyLoad', function ($ocLazyLoad) {
                     // you can lazy load files for an existing module
                     return $ocLazyLoad.load('login/login.js');
+                }]
+            }
+        });
+
+        $routeProvider.when('/registro', {
+            templateUrl: 'registro/registro.html',
+            controller: 'RegistroController',
+            data: {requiresLogin: false},
+            resolve: { // Any property in resolve should return a promise and is executed before the view is loaded
+                loadMyCtrl: ['$ocLazyLoad', function ($ocLazyLoad) {
+                    // you can lazy load files for an existing module
+                    return $ocLazyLoad.load('registro/registro.js');
                 }]
             }
         });

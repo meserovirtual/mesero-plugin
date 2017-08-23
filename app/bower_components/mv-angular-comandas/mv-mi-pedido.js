@@ -136,6 +136,7 @@
                     //if(user[item].usuario_id == vm.comanda[0].usuario_id) {
                     if(user[item].usuario_id == UserService.getFromToken().data.id) {
                         vm.usuario = user[item];
+                        console.log(vm.usuario);
                         //encontrado = true;
                     }
                 });

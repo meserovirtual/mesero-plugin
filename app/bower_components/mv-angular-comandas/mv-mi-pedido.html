@@ -1,19 +1,12 @@
 <div class="lista">
     <span class="mi-pedido-titulo">Mi Pedido</span>
-    <div class="buscador-container">
-        <div class="input">
-            <input class="mi-pedido-search" class="buscador" type="text" ng-model="$ctrl.filtroProd.nombre"
-                   placeholder="Buscar">
-        </div>
-    </div>
-
 
     <div class="productos-list">
-        <h1>Nro. de comanda: {{$ctrl.comanda[0].comanda_id}}</h1>
+        <h1>Pedido Número: {{$ctrl.comanda[0].comanda_id}}</h1>
         <div class="mi-pedido-pedido"
              ng-repeat="item in $ctrl.comanda[0].detalles">
             <div class="mi-pedido-top" ng-class="{'mi-pedido-no-pedido': item.status == 1}">
-                <span class="mi-pedido-top-left">{{item.nombre}}</span>
+                <span style="flex: 2" class="mi-pedido-top-left">{{item.nombre}}</span>
                 <span class="mi-pedido-top-left">{{item.cantidad}}</span>
                 <span class="mi-pedido-top-right">{{(item.precio * item.cantidad) | currency}}</span>
             </div>
@@ -30,24 +23,24 @@
     </div>
     <div class="" style="padding:10px;" ng-if="$ctrl.enableReserva">
         <div class="input">
-            <label>Ingrese comensales</label>
+            <label style="display: flex; margin-top: 10px; margin-bottom: 10px">Ingrese comensales</label>
             <input type="number" ng-model="$ctrl.comensales">
         </div>
         <div class="input">
-            <label>Fecha Reserva</label>
+            <label style="display: flex; margin-top: 10px; margin-bottom: 10px">Fecha Reserva</label>
             <input type="date" ng-model="$ctrl.fecha_reserva">
         </div>
         <div class="input">
-            <label>Hora Reserva</label>
+            <label style="display: flex; margin-top: 10px; margin-bottom: 10px">Hora Reserva</label>
             <input type="time" ng-model="$ctrl.hora_reserva">
         </div>
     </div>
-    <div class="" style="padding:10px;" ng-if="$ctrl.enableDelivery">
+    <div class="" style="padding:10px; line-height: 26px" ng-if="$ctrl.enableDelivery">
         <div>
             <span style="font-weight: bolder">Cliente: </span><span style="">{{$ctrl.usuario.apellido + ", " + $ctrl.usuario.nombre}}</span>
         </div>
         <div>
-            <span style="font-weight: bolder">Dirección: </span><span style="">{{$ctrl.usuario.direccion}}</span>
+            <span style="font-weight: bolder">Dirección: </span><span style="">{{$ctrl.usuario.direcciones[0].calle + " " + $ctrl.usuario.direcciones[0].nro}}</span>
         </div>
         <div>
             <span style="font-weight: bolder">Teléfono: </span><span style="">{{$ctrl.usuario.telefono}}</span>
@@ -57,12 +50,14 @@
         </div>
     </div>
     <div class="botonera" ng-if="!$ctrl.enableDelivery && !$ctrl.enableReserva">
-        <button type="button" class="boton-ok" ng-click="$ctrl.showReserva();" title="En el Resto">
-            <i class="fa fa-cutlery" aria-hidden="true"></i>
-        </button>
-        <button type="button" class="boton-cancelar" ng-click="$ctrl.showDelivery();" title="En Casa">
-            <i class="fa fa-motorcycle" aria-hidden="true"></i>
-        </button>
+        <div  style="width: 80px; margin: 5px" ng-click="$ctrl.showReserva();" title="En el Resto">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="9148 -14050 60 42.039"><defs><style>.a{fill:#222;}.b{fill:#fdfdfd;}</style></defs><g transform="translate(9148 -14050)"><path class="a" d="M130.391,21.573V39.806a2.007,2.007,0,0,1-1.129,2.127,1.792,1.792,0,0,1-2.474-1.823V22.094a.893.893,0,0,0-.608-1,2.729,2.729,0,0,1-1.78-2.648V2.994A2.894,2.894,0,0,1,127.048.085,2.949,2.949,0,0,1,130.3,2.56a12.6,12.6,0,0,1,.087,2.214Z" transform="translate(-70.398 -0.042)"/><path class="a" d="M3,27.262V14.629a.992.992,0,0,0-.564-1.042A4.537,4.537,0,0,1,.043,9.507C0,6.642.043,3.82,0,.955A.85.85,0,0,1,.955,0,.833.833,0,0,1,1.91.955v8.2c0,.825.26,1.129.955,1.129s.955-.3.955-1.172V1.042C3.82.3,4.167,0,4.862,0c.695.043.912.434.912,1.085V9.2c0,.825.434,1.215,1.172,1.085.608-.087.781-.521.781-1.085V1.129C7.684.478,7.814,0,8.6,0c.738,0,1.042.3,1,1.129,0,2.778-.043,5.513-.043,8.248a4.576,4.576,0,0,1-2.518,4.3c-.434.26-.391.564-.391.912V39.937c0,1.3-.738,2.127-1.823,2.084-1.085,0-1.78-.825-1.78-2.127C3,35.683,3,31.472,3,27.262Z"/><path class="a" d="M44.808,3A19.708,19.708,0,1,0,64.473,22.665,19.74,19.74,0,0,0,44.808,3Zm0,36.812a17.082,17.082,0,1,1,17.06-16.973A17.146,17.146,0,0,1,44.808,39.812Z" transform="translate(-14.204 -1.698)"/><path class="b" d="M48.247,9.1A17.082,17.082,0,1,0,65.264,26.334,17.072,17.072,0,0,0,48.247,9.1Zm.087,32.558A15.5,15.5,0,1,1,63.7,26.073,15.573,15.573,0,0,1,48.334,41.657Z" transform="translate(-17.599 -5.149)"/><path class="a" d="M50.241,12.7a15.5,15.5,0,1,0,15.5,15.411A15.516,15.516,0,0,0,50.241,12.7Z" transform="translate(-19.636 -7.187)"/></g></svg>
+            <span>En el resto</span>
+        </div>
+
+        <div style="width: 90px; margin: 5px" ng-click="$ctrl.showDelivery();" title="En Casa">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="9291 -14048.435 74 45.435"><defs><style>.a{fill:#767676;}.b{fill:#fafafa;}.c{fill:#333;}.d{fill:#050505;}.e{fill:#060606;}</style></defs><g transform="translate(9291.139 -14048.435)"><path d="M62.885,45.694H60.067a8.136,8.136,0,0,1-6.692-6.128,1.448,1.448,0,0,0-1.55-1.127H37.068a1.687,1.687,0,0,0-1.8,1.338,8,8,0,0,1-7.255,5.917H25.2A8.217,8.217,0,0,1,18.4,39.6a1.506,1.506,0,0,0-1.021-1.127,4.943,4.943,0,0,1-2.325-1.55,2.591,2.591,0,0,0-2.148-.564c-3.416-.035-6.8,0-10.214,0-2.008,0-2.959-.528-2.818-1.585.211-1.8,1.691-1.514,2.853-1.55,3.276-.035,6.586,0,9.862-.035a3.006,3.006,0,0,0,2.219-.458,13.669,13.669,0,0,0-3.909-.247,18.851,18.851,0,0,1-2.818-.106c-.81-.141-1.479-.493-1.479-1.444a1.482,1.482,0,0,1,1.409-1.514c1.514-.211,3.064-.035,4.579-.106a8.144,8.144,0,0,0,3.522-.352,2.811,2.811,0,0,0-2.008-.352c-2.994-.035-5.987.035-8.981-.035C4,28.541,2.939,28.224,2.939,26.815S4,25.125,5.123,25.09c3.8-.07,7.643,0,11.447-.035a4.765,4.765,0,0,0,2.923-.564c-2.113-.141-4.191-.106-6.3-.141a17.029,17.029,0,0,1-2.994-.106A2.149,2.149,0,0,1,8.222,22.1a2.117,2.117,0,0,1,1.585-2.43c1.514-.317,1.8-1.2,1.761-2.536-.035-3.24-.035-6.445,0-9.686a3.845,3.845,0,0,0-1.057-3.029A2.645,2.645,0,0,1,10.864.4H41.576a2.384,2.384,0,0,1,.74,3.8c-1.162,1.092-1.2,2.289-1.2,3.663.035,3.24.035,6.445,0,9.686,0,1.021.07,1.8,1.233,2.219,1.162.458,1.338,1.55,1.162,2.677a2.167,2.167,0,0,1-1.867,1.831,6.156,6.156,0,0,0-4.79,5.037,3.276,3.276,0,0,0,3.381,4.226c2.923.035,5.882-.035,8.805.035a2.366,2.366,0,0,0,2.642-2.008c1.62-6.023.634-11.869-1.2-17.646a1.614,1.614,0,0,0-1.726-1.2,4.72,4.72,0,0,1-.7-.035c-1.092-.106-2.536.106-2.642-1.374-.07-1.409,1.374-1.585,2.43-1.831,1.338-.317,2.712-.845,4.086.035.528.352,1.021.035,1.479-.247a6.331,6.331,0,0,1,1.9-.916c2.677-.669,3.769.141,3.8,2.853v2.994c.035,1.444-.106,2.747-1.937,2.994-.775.106-.564.564-.282,1.021A2.878,2.878,0,0,0,58.9,19.49c7.713,2.008,12.644,6.833,14.652,14.581.7,2.677.282,3.381-2.254,4.332a1.516,1.516,0,0,0-1.021,1.092C69.189,43.193,66.794,45.377,62.885,45.694Z" transform="translate(0 -0.259)"/><path class="a" d="M30.533.282A.19.19,0,0,1,30.6,0H61.949V.352H32.47C31.836.352,31.167.282,30.533.282Z" transform="translate(-19.845)"/><path class="b" d="M65.639,15.019c.986,0,.986.423.458,1.057a7.915,7.915,0,0,0-1.867,2.254,8.969,8.969,0,0,0,2.43-1.9c.282-.211.564-.528.881-.07.247.317-.035.564-.247.74-1.162,1.021-2.043,2.219-3.909,2.395-1.55.141-2.465,1.761-3.346,3.1-.282.423.176.634.423.845.634.634,1.3,1.2,1.9,1.831.458.458,1.233.916.458,1.726-.81.845-1.338.211-1.9-.317-.634-.6-1.3-1.162-1.9-1.831-.528-.564-.881-.564-1.409,0-.669.74-1.444,1.374-2.148,2.078-.528.528-1.092.7-1.655.07-.528-.6-.211-1.057.247-1.514.634-.6,1.268-1.2,1.9-1.831,1.374-1.3,1.233-1.937-.564-2.43a7.634,7.634,0,0,1-5.459-5.671c-.141-.493-.387-1.2.035-1.479.564-.387.916.317,1.268.634,2.043,1.937,4.156,3.8,6.093,5.811.775.775,1.338.74,2.008.141,1.162-1.021,2.5-1.8,2.677-3.663.141-1.409,1.585-2.113,2.606-2.959.458-.387.7.07.669.564A3.286,3.286,0,0,1,64.3,15.97,2.676,2.676,0,0,1,65.639,15.019Z" transform="translate(-32.305 -8.997)"/><path class="b" d="M166.012,92.4a5,5,0,1,1-5.213,5.107A5.179,5.179,0,0,1,166.012,92.4Z" transform="translate(-104.254 -59.855)"/><path class="b" d="M66.983,102.431a4.976,4.976,0,1,1,0-9.932,4.972,4.972,0,1,1,0,9.932Z" transform="translate(-40.059 -59.92)"/><path class="c" d="M90.171,16.387c-.7.74-1.409,1.479-2.113,2.184a4.462,4.462,0,0,0-.458-.387A8.439,8.439,0,0,1,89.748,16,4.221,4.221,0,0,1,90.171,16.387Z" transform="translate(-56.837 -10.365)"/><path class="d" d="M173.607,102.128a2.587,2.587,0,0,1-2.747,2.36,2.632,2.632,0,0,1-2.465-2.677,2.614,2.614,0,0,1,5.213.317Z" transform="translate(-109.173 -64.442)"/><path class="e" d="M71.606,104.5A2.689,2.689,0,0,1,69,101.929a2.586,2.586,0,0,1,2.677-2.43,2.512,2.512,0,0,1,2.571,2.536A2.559,2.559,0,0,1,71.606,104.5Z" transform="translate(-44.788 -64.454)"/></g></svg>            <span>En casa</span>
+        </div>
     </div>
     <div class="botonera" ng-if="$ctrl.enableDelivery || $ctrl.enableReserva">
         <button type="button" class="boton-ok" ng-click="$ctrl.saveReserva();" title="Confirmar Resto" ng-if="$ctrl.enableReserva">
