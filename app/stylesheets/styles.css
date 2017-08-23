@@ -64,137 +64,12 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
   display: block;
 }
 
-@-webkit-keyframes FadeInTop {
-  0% {
-    opacity: 0;
-    -webkit-transform: translateY(-50%);
-  }
-  100% {
-    opacity: 1;
-    -webkit-transform: translateY(0);
-  }
-}
-@-moz-keyframes FadeInTop {
-  0% {
-    opacity: 0;
-    -webkit-transform: translateY(-50%);
-  }
-  100% {
-    opacity: 1;
-    -webkit-transform: translateY(0);
-  }
-}
-@-o-keyframes FadeInTop {
-  0% {
-    opacity: 0;
-    -webkit-transform: translateY(-50%);
-  }
-  100% {
-    opacity: 1;
-    -webkit-transform: translateY(0);
-  }
-}
-@keyframes FadeInTop {
-  0% {
-    opacity: 0;
-    -webkit-transform: translateY(-50%);
-  }
-  100% {
-    opacity: 1;
-    -webkit-transform: translateY(0);
-  }
-}
-/* line 59, ../sass/styles.scss */
-.FadeInTop {
-  -webkit-animation-name: FadeInTop;
-  -moz-animation-name: FadeInTop;
-  -o-animation-name: FadeInTop;
-  animation-name: FadeInTop;
-}
-
-@-webkit-keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
-@-moz-keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
-@-webkit-keyframes FadeInLeft {
-  0% {
-    opacity: 0;
-    -webkit-transform: translateX(100%);
-  }
-  100% {
-    opacity: 1;
-    -webkit-transform: translateX(0);
-  }
-}
-@-moz-keyframes FadeInLeft {
-  0% {
-    opacity: 0;
-    -webkit-transform: translateX(100%);
-  }
-  100% {
-    opacity: 1;
-    -webkit-transform: translateX(0);
-  }
-}
-@-o-keyframes FadeInLeft {
-  0% {
-    opacity: 0;
-    -webkit-transform: translateX(100%);
-  }
-  100% {
-    opacity: 1;
-    -webkit-transform: translateX(0);
-  }
-}
-@keyframes FadeInLeft {
-  0% {
-    opacity: 0;
-    -webkit-transform: translateX(100%);
-  }
-  100% {
-    opacity: 1;
-    -webkit-transform: translateX(0);
-  }
-}
-/* line 138, ../sass/styles.scss */
-.FadeInLeft {
-  -webkit-animation-name: FadeInLeft;
-  -moz-animation-name: FadeInLeft;
-  -o-animation-name: FadeInTop2;
-  animation-name: FadeInLeft;
-}
-
-/* line 157, ../sass/styles.scss */
+/* line 22, ../sass/styles.scss */
 body {
   font-family: 'Ubuntu', sans-serif;
 }
 
-/* line 161, ../sass/styles.scss */
-html {
-  background-color: #263238;
-}
-
-/* line 165, ../sass/styles.scss */
+/* line 25, ../sass/styles.scss */
 .form-abm {
   position: fixed;
   width: 100%;
@@ -204,69 +79,38 @@ html {
   background-color: #EEEEEE;
 }
 
-/* line 174, ../sass/styles.scss */
+/* line 34, ../sass/styles.scss */
 .form-open {
   right: 0 !important;
-  background-color: white;
-  -webkit-animation: FadeInLeft ease-in 1;
-  -moz-animation: FadeInLeft ease-in 1;
-  animation: FadeInLeft ease-in 1;
-  -moz-animation-fill-mode: forwards;
-  animation-fill-mode: forwards;
-  -webkit-animation-duration: .3s;
-  -moz-animation-duration: .3s;
-  animation-duration: .3s;
 }
 
-/* line 188, ../sass/styles.scss */
+/* line 38, ../sass/styles.scss */
 .mi-pedido-no-pedido {
   background-color: #DfDfDf !important;
 }
 
-/* line 192, ../sass/styles.scss */
+/* line 42, ../sass/styles.scss */
 .mi-pedido-pedido {
   background-color: #FFFFFF;
   display: flex;
   flex-direction: column;
 }
 
-/* line 198, ../sass/styles.scss */
+/* line 48, ../sass/styles.scss */
 .mi-pedido-top {
   display: flex;
   flex-direction: row;
-  background-color: #263238;
-  border-bottom: 0.1px solid #00ACC1;
-  color: white;
-  line-height: 26px;
-  -webkit-animation: FadeInTop ease-in 1;
-  -moz-animation: FadeInTop ease-in 1;
-  animation: FadeInTop ease-in 1;
-  -moz-animation-fill-mode: forwards;
-  animation-fill-mode: forwards;
-  -webkit-animation-duration: .5s;
-  -moz-animation-duration: .5s;
-  animation-duration: .5s;
 }
 
-/* line 217, ../sass/styles.scss */
+/* line 54, ../sass/styles.scss */
 .mi-pedido-extra {
+  background-color: #D5D5D5;
   display: flex;
   flex-direction: row;
-  background-color: #263238;
-  border-bottom: 0.1px solid #00ACC1;
-  color: white;
-  line-height: 26px;
-  -webkit-animation: FadeInTop ease-in 1;
-  -moz-animation: FadeInTop ease-in 1;
-  animation: FadeInTop ease-in 1;
-  -moz-animation-fill-mode: forwards;
-  animation-fill-mode: forwards;
-  -webkit-animation-duration: .5s;
-  -moz-animation-duration: .5s;
-  animation-duration: .5s;
+  padding: 10px;
 }
 
-/* line 234, ../sass/styles.scss */
+/* line 61, ../sass/styles.scss */
 .mi-pedido-eliminar {
   height: 20px;
   width: 20px;
@@ -274,24 +118,21 @@ html {
   padding: 5px;
 }
 
-/* line 241, ../sass/styles.scss */
+/* line 68, ../sass/styles.scss */
 .mi-pedido-top-left,
 .mi-pedido-extra-left {
-  flex: 8;
+  flex: 3;
   margin: 5px;
-  font-size: 17px;
 }
 
-/* line 248, ../sass/styles.scss */
+/* line 74, ../sass/styles.scss */
 .mi-pedido-top-right,
 .mi-pedido-extra-right {
   flex: 1;
   margin: 5px;
-  font-size: 17px;
-  color: #00ACC1;
 }
 
-/* line 256, ../sass/styles.scss */
+/* line 80, ../sass/styles.scss */
 .nav {
   display: flex;
   flex-direction: row;
@@ -302,124 +143,105 @@ html {
   top: 0;
   left: 0;
   right: 0;
-  height: 28px;
+  height: 30px;
   padding: 5px;
-  z-index: 1200;
 }
-/* line 269, ../sass/styles.scss */
+/* line 92, ../sass/styles.scss */
 .nav img {
-  height: 25px;
-  width: 25px;
+  height: 30px;
+  width: 30px;
 }
-/* line 273, ../sass/styles.scss */
+/* line 96, ../sass/styles.scss */
 .nav .separator {
   flex: 8;
 }
 
-/* line 278, ../sass/styles.scss */
+/* line 101, ../sass/styles.scss */
 .view-container {
   margin-top: 40px;
 }
 
-/* line 282, ../sass/styles.scss */
+/* line 105, ../sass/styles.scss */
 .mi-pedido-titulo {
   width: calc(100% - 20px);
-  background-color: #263238;
-  color: #00ACC1;
+  background-color: #00ACC1;
+  color: white;
   font-family: 'Ubuntu', sans-serif;
   display: inherit;
   padding: 10px;
-  font-size: 30px;
-  text-transform: uppercase;
-  -webkit-animation: FadeInTop ease-in 1;
-  -moz-animation: FadeInTop ease-in 1;
-  animation: FadeInTop ease-in 1;
-  -moz-animation-fill-mode: forwards;
-  animation-fill-mode: forwards;
-  -webkit-animation-duration: .5s;
-  -moz-animation-duration: .5s;
-  animation-duration: .5s;
+  font-size: 7vw;
+}
+@media (min-width: 600px) {
+  /* line 105, ../sass/styles.scss */
+  .mi-pedido-titulo {
+    font-size: 4vw;
+  }
 }
 
-/* line 301, ../sass/styles.scss */
+/* line 120, ../sass/styles.scss */
 .productos-insite-categoria-titulo,
 .productos-insite-producto-guar-titulo {
   width: calc(100% - 20px);
   background-color: #00ACC1;
   display: inherit;
-  text-transform: uppercase;
   padding: 10px;
   font-family: 'Ubuntu', sans-serif;
-  font-size: 30px;
+  font-size: 7vw;
   color: white;
-  -webkit-animation: FadeInTop ease-in 1;
-  -moz-animation: FadeInTop ease-in 1;
-  animation: FadeInTop ease-in 1;
-  -moz-animation-fill-mode: forwards;
-  animation-fill-mode: forwards;
-  -webkit-animation-duration: .5s;
-  -moz-animation-duration: .5s;
-  animation-duration: .5s;
+}
+@media (min-width: 600px) {
+  /* line 120, ../sass/styles.scss */
+  .productos-insite-categoria-titulo,
+  .productos-insite-producto-guar-titulo {
+    font-size: 4vw;
+  }
 }
 
-/* line 324, ../sass/styles.scss */
+/* line 136, ../sass/styles.scss */
 .productos-insite-categoria-imagen {
-  width: 100%;
-  height: 12.8vw;
-  /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#ffffff+0,e5e5e5+100;White+3D */
-  background: #ffffff;
-  /* Old browsers */
-  background: -moz-linear-gradient(top, #ffffff 0%, #e5e5e5 100%);
+  padding: 10px;
+  /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#a1b2b4+0,a1b2b4+100&1+0,0.3+100 */
+  background: -moz-linear-gradient(top, #a1b2b4 0%, rgba(161, 178, 180, 0.3) 100%);
   /* FF3.6-15 */
-  background: -webkit-linear-gradient(top, #ffffff 0%, #e5e5e5 100%);
+  background: -webkit-linear-gradient(top, #a1b2b4 0%, rgba(161, 178, 180, 0.3) 100%);
   /* Chrome10-25,Safari5.1-6 */
-  background: linear-gradient(to bottom, #ffffff 0%, #e5e5e5 100%);
+  background: linear-gradient(to bottom, #a1b2b4 0%, rgba(161, 178, 180, 0.3) 100%);
   /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#e5e5e5',GradientType=0 );
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a1b2b4', endColorstr='#4da1b2b4',GradientType=0 );
   /* IE6-9 */
 }
-/* line 332, ../sass/styles.scss */
+/* line 147, ../sass/styles.scss */
 .productos-insite-categoria-imagen svg {
-  margin: auto;
-  width: 95% !important;
+  display: flex;
+  width: 100% !important;
   height: 100%;
-  margin-left: 2%;
-  -webkit-animation: FadeIn ease-in 1;
-  -moz-animation: FadeIn ease-in 1;
-  animation: FadeIn ease-in 1;
-  -moz-animation-fill-mode: forwards;
-  animation-fill-mode: forwards;
-  -webkit-animation-duration: .5s;
-  -moz-animation-duration: .5s;
-  animation-duration: .5s;
 }
 
-/* line 348, ../sass/styles.scss */
+/* line 154, ../sass/styles.scss */
 .productos-list h1 {
   Padding: 10px;
   font-family: 'Ubuntu', sans-serif;
   font-size: 22px;
-  border-bottom: 1px solid white;
 }
 
-/* line 356, ../sass/styles.scss */
+/* line 160, ../sass/styles.scss */
 .buscador-container {
-  background-color: black;
   width: 100%;
   display: flex;
   justify-content: space-around;
   flex-direction: row;
 }
-/* line 362, ../sass/styles.scss */
+/* line 165, ../sass/styles.scss */
 .buscador-container .input {
   display: flex;
+  width: 99%;
+  margin: 5px;
   font-size: 18px;
-  width: 100%;
   color: black;
   font-family: 'Ubuntu', sans-serif;
 }
 
-/* line 371, ../sass/styles.scss */
+/* line 175, ../sass/styles.scss */
 .productos-insite-producto,
 .productos-insite-producto-guarnicion {
   display: flex;
@@ -428,19 +250,19 @@ html {
   font-size: 17px;
   padding: 8px;
 }
-/* line 379, ../sass/styles.scss */
+/* line 183, ../sass/styles.scss */
 .productos-insite-producto span:nth-child(1),
 .productos-insite-producto-guarnicion span:nth-child(1) {
   flex: 8;
 }
-/* line 382, ../sass/styles.scss */
+/* line 186, ../sass/styles.scss */
 .productos-insite-producto span,
 .productos-insite-producto-guarnicion span {
   padding: 5px;
 }
 
 @media (min-width: 600px) {
-  /* line 389, ../sass/styles.scss */
+  /* line 193, ../sass/styles.scss */
   .productos-insite-producto:hover, .productos-insite-producto-guarnicion:hover {
     cursor: pointer;
     background-color: #76986A !important;
@@ -452,105 +274,89 @@ html {
   }
 }
 
-/* line 401, ../sass/styles.scss */
-.productos-insite-producto:nth-child(odd),
-.productos-insite-producto-guarnicion:nth-child(odd) {
-  background-color: white;
-}
-
-/* line 406, ../sass/styles.scss */
+/* line 207, ../sass/styles.scss */
 .productos-insite-detalle {
+  margin-top: 40px;
   display: flex;
   flex-direction: column;
-  text-align: center;
-  margin-top: 38px;
 }
 
-/* line 414, ../sass/styles.scss */
+/* line 213, ../sass/styles.scss */
 .productos-insite-producto {
   font-family: 'Ubuntu', sans-serif;
   font-size: 16px;
   padding: 5px;
+  background-color: #EDEDED;
 }
 
-/* line 420, ../sass/styles.scss */
+/* line 220, ../sass/styles.scss */
 .productos-insite-producto-top {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  margin: 10px;
   font-family: 'Ubuntu', sans-serif;
-  font-size: 20px;
-  background-color: #00ACC1;
-  color: white;
-  padding: 5px;
-  -webkit-animation: FadeInTop ease-in 1;
-  -moz-animation: FadeInTop ease-in 1;
-  animation: FadeInTop ease-in 1;
-  -moz-animation-fill-mode: forwards;
-  animation-fill-mode: forwards;
-  -webkit-animation-duration: .5s;
-  -moz-animation-duration: .5s;
-  animation-duration: .5s;
+  font-size: 24px;
+  color: #000000;
 }
 
-/* line 439, ../sass/styles.scss */
+/* line 229, ../sass/styles.scss */
+.productos-insite-producto-titulo {
+  font-weight: bold;
+}
+
+/* line 232, ../sass/styles.scss */
 .productos-insite-producto-precio {
-  color: white;
+  font-weight: bold;
+  color: black;
 }
 
-/* line 444, ../sass/styles.scss */
+/* line 237, ../sass/styles.scss */
 .productos-insite-producto-add-remove {
   display: flex;
   flex-direction: row;
+  color: white;
   justify-content: space-between;
   background: #263238;
-  color: white;
-  font-size: 32px;
-  padding-top: 5px;
+  font-size: 24px;
   font-family: 'Ubuntu', sans-serif;
+  align-items: center;
 }
-/* line 453, ../sass/styles.scss */
+/* line 246, ../sass/styles.scss */
 .productos-insite-producto-add-remove button {
   border-style: none;
   background: none;
+  padding-top: 5px;
 }
 
-/* line 460, ../sass/styles.scss */
+/* line 254, ../sass/styles.scss */
 .productos-insite-producto-comentario {
-  color: black;
-  outline: none;
-  font-family: 'Ubuntu', sans-serif;
-  /* Rectangle 2 Copy 5: */
-  background: white;
-  border-radius: 2px;
-  border: .5px solid darkgray;
-  width: 90%;
+  display: flex;
   margin: 5px auto;
-  padding-left: 10px;
-  padding-right: 10px;
-  font-size: 16px;
+  width: 97%;
+  background: #D8D8D8;
+  border: 1px solid #979797;
+  box-shadow: inset 0 1px 3px 0 rgba(0, 0, 0, 0.5);
+  border-radius: 8px;
 }
 
-/* line 476, ../sass/styles.scss */
+/* line 265, ../sass/styles.scss */
 .productos-insite-producto-description {
-  padding: 10px;
-  font-family: 'Ubuntu', sans-serif;
-  font-size: 16px;
-  line-height: 26px;
-  text-align: -webkit-left;
-  border-top: 1px solid #263238;
-  border-bottom: 1px solid #263238;
+  padding-left: 10px;
   color: black;
+  font-family: 'Ubuntu', sans-serif;
+  font-size: 14px;
+  line-height: 22px;
 }
 
-/* line 487, ../sass/styles.scss */
+/* line 273, ../sass/styles.scss */
 .botonera {
   text-align: center;
   margin-top: 10px;
   margin-bottom: 10px;
 }
 
-/* line 493, ../sass/styles.scss */
+/* line 279, ../sass/styles.scss */
 .boton-agregar, .boton-cancelar, .boton-ok, .boton-eliminar, .boton-calendario {
   position: relative;
   height: 37px;
@@ -568,7 +374,7 @@ html {
   transition: all .4s ease-in-out;
 }
 
-/* line 509, ../sass/styles.scss */
+/* line 295, ../sass/styles.scss */
 .btn-agregar, .btn-cancelar, .btn-ok, .btn-eliminar, .btn-calendario {
   position: relative;
   color: #fff;
@@ -587,37 +393,37 @@ html {
   transition: all .4s ease-in-out;
 }
 
-/* line 527, ../sass/styles.scss */
+/* line 313, ../sass/styles.scss */
 .boton-cancelar, .btn-cancelar {
   background-color: #ED7161 !important;
 }
 
-/* line 530, ../sass/styles.scss */
+/* line 316, ../sass/styles.scss */
 .boton-agregar, .btn-agregar {
   background-color: #293333;
 }
 
-/* line 533, ../sass/styles.scss */
+/* line 319, ../sass/styles.scss */
 .boton-ok, .btn-ok {
   background-color: #00CE5D;
 }
 
-/* line 536, ../sass/styles.scss */
+/* line 322, ../sass/styles.scss */
 .boton-eliminar, .btn-eliminar {
   background-color: sandybrown;
 }
 
-/* line 539, ../sass/styles.scss */
+/* line 325, ../sass/styles.scss */
 .boton-calendario, .btn-calendario {
   background-color: #447EAF;
 }
 
-/* line 543, ../sass/styles.scss */
+/* line 329, ../sass/styles.scss */
 .fa {
   color: white;
 }
 
-/* line 547, ../sass/styles.scss */
+/* line 333, ../sass/styles.scss */
 .boton-agregar:hover, .boton-cancelar:hover, .boton-ok:hover, .boton-eliminar:hover, .boton-calendario:hover,
 .btn-agregar:hover, .btn-cancelar:hover, .btn-ok:hover, .btn-eliminar:hover, .btn-calendario:hover {
   box-shadow: 0 2px 2px rgba(0, 0, 0, 0.2);
@@ -634,7 +440,7 @@ html {
   transition: all .4s ease-in-out;
 }
 
-/* line 560, ../sass/styles.scss */
+/* line 346, ../sass/styles.scss */
 .btn-agregar:hover, .btn-cancelar:hover, .btn-ok:hover, .btn-eliminar:hover, .btn-calendario:hover {
   -ms-transform: scale(1, 1);
   /* IE 9 */
@@ -643,7 +449,7 @@ html {
   transform: scale(1, 1);
 }
 
-/* line 566, ../sass/styles.scss */
+/* line 352, ../sass/styles.scss */
 .input input {
   width: 100%;
   font-size: 18px !important;
@@ -653,69 +459,38 @@ html {
   padding: 5px;
 }
 
-/* line 576, ../sass/styles.scss */
+/* line 362, ../sass/styles.scss */
 .total-mi-pedido {
   margin: 4px auto;
-  font-size: 21px;
+  font-size: 28px;
   font-family: 'Ubuntu', sans-serif;
   padding-right: 10px;
 }
 
-/* line 586, ../sass/styles.scss */
+/* line 372, ../sass/styles.scss */
 .plato-sin-confirmar {
-  border-right: 40px solid #FFEB3B !important;
-  -webkit-animation: FadeIn ease-in 1;
-  -moz-animation: FadeIn ease-in 1;
-  animation: FadeIn ease-in 1;
-  -moz-animation-fill-mode: forwards;
-  animation-fill-mode: forwards;
-  -webkit-animation-duration: .5s;
-  -moz-animation-duration: .5s;
-  animation-duration: .5s;
+  border-top: 5px solid darkred !important;
 }
 
-/* line 598, ../sass/styles.scss */
+/* line 374, ../sass/styles.scss */
 .plato-confirmado {
-  border-right: 40px solid #CDDC39 !important;
-  -webkit-animation: FadeIn ease-in 1;
-  -moz-animation: FadeIn ease-in 1;
-  animation: FadeIn ease-in 1;
-  -moz-animation-fill-mode: forwards;
-  animation-fill-mode: forwards;
-  -webkit-animation-duration: .5s;
-  -moz-animation-duration: .5s;
-  animation-duration: .5s;
+  border-top: 5px solid yellow !important;
 }
 
-/* line 609, ../sass/styles.scss */
+/* line 377, ../sass/styles.scss */
 .plato-servido {
-  border-right: 40px #00ACC1 solid !important;
-  -webkit-animation: FadeIn ease-in 1;
-  -moz-animation: FadeIn ease-in 1;
-  animation: FadeIn ease-in 1;
-  -moz-animation-fill-mode: forwards;
-  animation-fill-mode: forwards;
-  -webkit-animation-duration: .5s;
-  -moz-animation-duration: .5s;
-  animation-duration: .5s;
+  border-top: 5px #79996D solid !important;
 }
 
-/* line 623, ../sass/styles.scss */
+/* line 382, ../sass/styles.scss */
 .contenedor-mesero-plugin mv-productos-insite {
   flex: 3;
-  z-index: 1000;
 }
 
 @media (max-width: 600px) {
-  /* line 630, ../sass/styles.scss */
+  /* line 388, ../sass/styles.scss */
   .contenedor-mesero-plugin mv-mi-pedido {
     display: none;
     visibility: hidden;
   }
-}
-
-/* line 639, ../sass/styles.scss */
-mv-mi-pedido {
-  background-color: #263238;
-  color: white;
 }
